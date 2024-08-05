@@ -4,10 +4,10 @@ from matplotlib.patches import Polygon
 
 np.random.seed(0)
 
-OFFSET = {(1, 0): (0.65, 0.45),
+OFFSET = {(1, 0): (0.55, 0.45),
           (-1, 0): (0.05, 0.45),
-          (0, 1): (0.375, 0.85),
-          (0, -1): (0.375, 0.05)}
+          (0, 1): (0.29, 0.80),
+          (0, -1): (0.29, 0.10)}
 
 #######################################################################################################################
 #######################################################################################################################
@@ -129,10 +129,8 @@ class GridWorld:
         """
         Returns a trajectory based on init_pos following the polcy, 
         """
-        
-        
-                
-        
+        pass
+    
         
 #######################################################################################################################
 #######################################################################################################################
@@ -162,7 +160,7 @@ def display_values(grid_world, values):
     And displays the grid_world with values
     """
     height, width = grid_world.height, grid_world.width
-    fig, ax = plt.subplots(figsize=(1.5*width, 1.5*height))
+    fig, ax = plt.subplots(figsize=(5, 5))
     ax.set_xticks(np.arange(width+1))
     ax.set_yticks(np.arange(height+1))
     ax.set_xticklabels([])
@@ -174,10 +172,12 @@ def display_values(grid_world, values):
         for y in range(height):
             ax.add_patch(plt.Rectangle((x, y), 1, 1, fill=True, color=color(grid_world, (x, y))))
             if (x, y) not in grid_world.walls:
-                ax.text(x + 0.325, y + 0.45, f'{values[x][y]:.3f}', fontsize=10, color='black')
+                ax.text(x + 0.25, y + 0.45, f'{values[x][y]:.3f}', fontsize=10, color='black')
             if (x, y) == grid_world.exits['good_exit'] or (x, y) == grid_world.exits['bad_exit']:
                 ax.add_patch(plt.Rectangle((x+0.1, y+0.1), 0.8, 0.8, facecolor='none', edgecolor="white", linewidth=2))
-                ax.text(x + 0.325, y + 0.45, f'{values[x][y]:.3f}', fontsize=10, color='white')
+                ax.text(x + 0.25, y + 0.45, f'{values[x][y]:.3f}', fontsize=10, color='white')
+    ax.set_title(f"Optimal value for each state")
+    plt.show()
 
 def display_qvalues(grid_world, q_values):
     """ 
@@ -186,7 +186,7 @@ def display_qvalues(grid_world, q_values):
     And displays the grid world with q_values.
     """
     height, width = grid_world.height, grid_world.width
-    fig, ax = plt.subplots(figsize=(1.5*width, 1.5*height))
+    fig, ax = plt.subplots(figsize=(5, 5))
     ax.set_xticks(np.arange(width+1))
     ax.set_yticks(np.arange(height+1))
     ax.set_xticklabels([])
@@ -197,14 +197,17 @@ def display_qvalues(grid_world, q_values):
     for x in range(width):
         for y in range(height):
             ax.add_patch(plt.Rectangle((x, y), 1, 1, fill=True, color=color(grid_world, (x, y))))
-            q_value = q_values[(x, y)]
-            if (x, y) != grid_world.exits['good_exit'] and (x, y) != grid_world.exits['bad_exit']:
-                for action, q_val in q_value.items():
-                    offset_x, offset_y = OFFSET[action]
-                    ax.text(x + offset_x, y + offset_y, f'{q_val:.3f}', fontsize=8, color='black')
-            else:
-                ax.add_patch(plt.Rectangle((x+0.1, y+0.1), 0.8, 0.8, facecolor='none', edgecolor="white", linewidth=2))
-                ax.text(x + 0.325, y + 0.45, f'{max(q_value.values()):.3f}', fontsize=10, color='white')
+            if (x, y) not in grid_world.walls:
+                q_value = q_values[(x, y)]
+                if (x, y) != grid_world.exits['good_exit'] and (x, y) != grid_world.exits['bad_exit']:
+                    for action, q_val in q_value.items():
+                        offset_x, offset_y = OFFSET[action]
+                        ax.text(x + offset_x, y + offset_y, f'{q_val:.3f}', fontsize=7, color='black')
+                else:
+                    ax.add_patch(plt.Rectangle((x+0.1, y+0.1), 0.8, 0.8, facecolor='none', edgecolor="white", linewidth=2))
+                    ax.text(x + 0.25, y + 0.45, f'{max(q_value.values()):.3f}', fontsize=10, color='white')
+    ax.set_title(f"Q-values for each state")
+    plt.show()
                 
 def display_policy(grid_world, policy):
     """ 
@@ -212,7 +215,7 @@ def display_policy(grid_world, policy):
     Displays the grid_world with the policy
     """
     height, width = grid_world.height, grid_world.width
-    fig, ax = plt.subplots(figsize=(1.5*width, 1.5*height))
+    fig, ax = plt.subplots(figsize=(5, 5))
     ax.set_xticks(np.arange(width+1))
     ax.set_yticks(np.arange(height+1))
     ax.set_xticklabels([])
@@ -247,4 +250,5 @@ def display_policy(grid_world, policy):
                 ax.add_patch(triangle)
             else:
                 ax.add_patch(plt.Rectangle((x+0.1, y+0.1), 0.8, 0.8, facecolor='none', edgecolor="white", linewidth=2))
+    ax.set_title(f"Optimal policy for each state")
     plt.show()

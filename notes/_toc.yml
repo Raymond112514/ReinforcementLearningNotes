@@ -3,7 +3,32 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+parts:
+- caption: A. Markov decision process
+  numbered: True
+  chapters:
+  - file: MDP/Markov-decision-process.ipynb
+  - file: MDP/Value-iteration.ipynb
+    sections:
+    - file: MDP/Value-iteration-convergence.ipynb
+  - file: MDP/Policy-iteration.ipynb
+- caption: B. Value based methods
+  numbered: True
+  chapters: 
+  - file: MonteCarlo/Monte-Carlo-value-estimation.ipynb
+    sections:
+     - file: MonteCarlo/Monte-Carlo-Control.ipynb
+  - file: TD/Temporal-difference.ipynb
+    sections:
+    - file: TD/Temporal-difference-control.ipynb
+  - file: ValueBasedMethods/Deep-Q-Learning.ipynb
+  - file: ValueBasedMethods/Dueling-Q-Learning.ipynb
+- caption: C. Policy based methods
+  numbered: True
+  chapters:
+  - file: PolicyGradient/Policy-gradient-method.ipynb
+  - file: PolicyGradient/Actor-critic-methods.ipynb
+  - file: PolicyGradient/Generalized-advantage-estimation.ipynb
+  - file: PolicyGradient/Proximal-policy-gradient.ipynb
+  - file: PolicyGradient/Deterministic-policy-gradient-method.ipynb
+  - file: PolicyGradient/Soft-actor-critic.ipynb
