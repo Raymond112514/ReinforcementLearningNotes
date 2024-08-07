@@ -1,0 +1,716 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9. Policy gradient method &#8212; Notes on Reinforcement learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4787184b" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PolicyGradient/Policy-gradient-method';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10. Actor critic methods" href="Actor-critic-methods.html" />
+    <link rel="prev" title="8. Dueling Q Learning" href="../ValueBasedMethods/Dueling-Q-Learning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Notes on Reinforcement learning</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">A. Markov decision process</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MDP/Markov-decision-process.html">1. Markov decision process</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MDP/Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../MDP/Policy-iteration.html">3. Policy iteration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">7. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">8. Dueling Q Learning</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Actor-critic-methods.html">10. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Generalized-advantage-estimation.html">11. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRPO.html">12. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Proximal-policy-gradient.html">13. Proximal policy gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic-policy-gradient-method.html">14. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Soft-actor-critic.html">15. Soft actor critic</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPolicyGradient/Policy-gradient-method.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/PolicyGradient/Policy-gradient-method.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Policy gradient method</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#policy-gradient-theorem-informal">9.1. Policy gradient theorem (Informal)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reinforce-implementation">9.2. REINFORCE Implementation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="policy-gradient-method">
+<h1><span class="section-number">9. </span>Policy gradient method<a class="headerlink" href="#policy-gradient-method" title="Link to this heading">#</a></h1>
+<p>In value based methods, we learn a value function <span class="math notranslate nohighlight">\(V(\mathbf{s})\)</span> or a action value function <span class="math notranslate nohighlight">\(Q(\mathbf{s}, \mathbf{a})\)</span>, from which policies are derived. In contrast, policy-based methods directly parameterize and learn the policy <span class="math notranslate nohighlight">\(\pi_{\theta}\)</span> without explicitly learning the value function. Formally, we want to find a policy that maximizes the expected return</p>
+<div class="math notranslate nohighlight">
+\[\theta^* = \underset{\theta}{\text{argmax}} \; J(\theta)  =  \underset{\theta}{\text{argmax}} \; \mathbb{E}_{\tau \sim p_{\theta}(\tau)}\bigg[\underbrace{\sum_{t\geq 0}r(\mathbf{s}_t, \mathbf{a}_t)}_{r(\tau)}\bigg]\]</div>
+<p>Where the trajectories <span class="math notranslate nohighlight">\(\tau = (\mathbf{s}_0, \mathbf{a}_0, r_0, \mathbf{s}_1,...)\)</span> are sampled from the distribution induced by the policy <span class="math notranslate nohighlight">\(\pi_{\theta}\)</span></p>
+<div class="math notranslate nohighlight">
+\[p_{\theta}(\tau) = p(\mathbf{s}_0)\prod_{t\geq 0} \pi_{\theta}(\mathbf{a}_t|\mathbf{s}_t) p(\mathbf{s}_{t+1}|\mathbf{s}_t, \mathbf{a}_t)\]</div>
+<p>One potential way of optimizing the objective <span class="math notranslate nohighlight">\(J(\theta)\)</span> is to estimate the expectation in a Monte-Carlo fashion. Specifically, we sample trajectories <span class="math notranslate nohighlight">\(\{\tau_i\}_{i\in [N]}\)</span> and instead optimize</p>
+<div class="math notranslate nohighlight">
+\[\theta^* = \underset{\theta}{\text{argmax}} \;  \frac{1}{N}\sum_{i=1}^N r(\tau_i)\]</div>
+<p>However, there is a trouble in the optimization problem: we cannot differentiate through <span class="math notranslate nohighlight">\(\theta\)</span> because it is part of a random variable! This means that we need to slightly reformulate the problem before applying Monte Carlo estimation.</p>
+<section id="policy-gradient-theorem-informal">
+<h2><span class="section-number">9.1. </span>Policy gradient theorem (Informal)<a class="headerlink" href="#policy-gradient-theorem-informal" title="Link to this heading">#</a></h2>
+<p>To address the issue mentioned earlier, we consider unrolling the expectation and, assuming regularity conditions, we interchange the gradient operator and the integral.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    \nabla_{\theta} J(\theta) &amp;= \nabla_{\theta} \mathbb{E}_{\tau \sim p_{\theta}(\tau)}[r(\tau)]\\
+    &amp;= \nabla_{\theta} \int r(\tau)p_{\theta}(\tau)d\tau\\
+    &amp;= \int r(\tau) \nabla_{\theta}p_{\theta}(\tau)d\tau\\
+\end{align*}
+\end{split}\]</div>
+<p>Next, we use the trick that</p>
+<div class="math notranslate nohighlight">
+\[\nabla_{\theta} \log p_{\theta}(\tau) = \frac{\nabla_{\theta} p_{\theta}(\tau)}{p_{\theta}(\tau)}\]</div>
+<p>Substituting gives us</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    \nabla_{\theta} J(\theta) &amp;= \int r(\tau) \nabla_{\theta}p_{\theta}(\tau)d\tau\\
+    &amp;= \int r(\tau) \nabla_{\theta} \log p_{\theta}(\tau) p_{\theta}(\tau)d\tau\\
+    &amp;= \mathbb{E}_{\tau \sim p_{\theta}(\tau)} \bigg[r(\tau) \nabla_{\theta} \log p_{\theta}(\tau)\bigg]
+\end{align*}
+\end{split}\]</div>
+<p>This allows us to express the gradient of an expectation as the expectation of the gradient. We can further simplify the gradient by noting that</p>
+<div class="math notranslate nohighlight">
+\[p_{\theta}(\tau) = p(\mathbf{s}_0)\prod_{t\geq 0} \pi_{\theta}(\mathbf{a}_t|\mathbf{s}_t) p(\mathbf{s}_{t+1}|\mathbf{s}_t, \mathbf{a}_t) \implies \nabla_{\theta}\log p_{\theta}(\tau) = \sum_{t\geq 0} \nabla_{\theta} \pi_{\theta}(\mathbf{a}_t|\mathbf{s}_t)\]</div>
+<p>Which gives us</p>
+<div class="math notranslate nohighlight">
+\[\nabla_{\theta} J(\theta) =  \mathbb{E}_{\tau \sim p_{\theta}(\tau)} \bigg[\bigg(\sum_{t\geq 0}r(\mathbf{s}_t, \mathbf{a}_t)\bigg)\bigg(\sum_{t\geq 0}\nabla_{\theta} \log \pi_{\theta}(\mathbf{a}_t|\mathbf{s}_t)\bigg)\bigg] \]</div>
+<p>The above statement is known as the policy gradient theorem, proposed by Sutton et al. in 1999. What’s remarkable about it is that it allows us to approximate and compute the gradient of the objective!</p>
+<div class="math notranslate nohighlight">
+\[\nabla_{\theta} J(\theta) \approx \frac{1}{K}\sum_{i=1}^K  \bigg(\sum_{t\geq 0}r(\mathbf{s}_{i,t}, \mathbf{a}_{i,t})\bigg)\bigg(\sum_{t\geq 0}\nabla_{\theta} \log \pi_{\theta}(\mathbf{a}_{i,t}|\mathbf{s}_{i,t})\bigg)\]</div>
+<p>This motivates the REINFORCE algorithm, which essentially uses the policy gradient theorem as an update rule for the policy. The pseudocode for REINFORCE is presented below.</p>
+<div class="proof algorithm admonition" id="my-algorithm">
+<p class="admonition-title"><span class="caption-number">Algorithm 9.1 </span> (REINFORCE)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Inputs</strong> Differentiable policy <span class="math notranslate nohighlight">\(\pi_{\theta}(\mathbf{a}|\mathbf{s})\)</span>, learning rate <span class="math notranslate nohighlight">\(\alpha\)</span>, number of episodes <span class="math notranslate nohighlight">\(N\)</span>, batch size <span class="math notranslate nohighlight">\(K\)</span></p>
+<ol class="arabic simple">
+<li><p>While episode <span class="math notranslate nohighlight">\(n&lt;N\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Generate <span class="math notranslate nohighlight">\(K\)</span> trajectories following policy <span class="math notranslate nohighlight">\(\pi_{\theta}(\mathbf{a}|\mathbf{s})\)</span></p></li>
+<li><p>Estimate <span class="math notranslate nohighlight">\(\nabla_{\theta} J(\theta) \approx \frac{1}{K}\sum_{i=1}^K  (\sum_{t\geq 0}r(\mathbf{s}_{i,t}, \mathbf{a}_{i,t}))(\sum_{t\geq 0}\nabla_{\theta} \log \pi_{\theta}(\mathbf{a}_{i,t}|\mathbf{s}_{i,t}))\)</span></p></li>
+<li><p>Update <span class="math notranslate nohighlight">\(\theta\leftarrow \theta + \alpha \nabla_{\theta}J(\theta)\)</span></p></li>
+</ol>
+</li>
+</ol>
+</section>
+</div></section>
+<section id="reinforce-implementation">
+<h2><span class="section-number">9.2. </span>REINFORCE Implementation<a class="headerlink" href="#reinforce-implementation" title="Link to this heading">#</a></h2>
+<p>We now implement the REINFORCE algorithm and test its performance on the CartPole environment. We begin by implementing the policy function <span class="math notranslate nohighlight">\(\pi_{\theta}\)</span>, which is parameterized as a one-layer neural network with a hidden dimension of <span class="math notranslate nohighlight">\(128\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>-q<span class="w"> </span>install<span class="w"> </span>pybullet
+<span class="o">!</span>pip<span class="w"> </span>-q<span class="w"> </span>install<span class="w"> </span>stable-baselines3<span class="o">[</span>extra<span class="o">]</span>
+<span class="o">!</span>pip<span class="w"> </span>-q<span class="w"> </span>install<span class="w"> </span>pyvirtualdisplay
+<span class="o">!</span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>xvfb
+
+<span class="kn">import</span> <span class="nn">gym</span>
+<span class="kn">import</span> <span class="nn">pybullet_envs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pyvirtualdisplay</span>
+<span class="kn">import</span> <span class="nn">imageio</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+<span class="kn">import</span> <span class="nn">torch.nn.utils</span> <span class="k">as</span> <span class="nn">utils</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DataLoader</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">DEVICE</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Policy</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dim</span><span class="p">,</span> <span class="n">action_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Policy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">SimpleNeuralNetwork</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="n">state_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="n">action_dim</span><span class="p">,</span> <span class="n">final_layer</span><span class="o">=</span><span class="s2">&quot;Softmax&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">select_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span>
+        <span class="n">action_dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="n">action_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">probs</span><span class="o">=</span><span class="n">action_dist</span><span class="p">)</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">action_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+        <span class="n">action_log_prob</span> <span class="o">=</span> <span class="n">action_dist</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">action</span><span class="p">,</span> <span class="n">action_log_prob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we’ll implement the REINFORCE algorithm in the <code class="docutils literal notranslate"><span class="pre">REINFORCEAgent</span></code> class, which inherits from the <code class="docutils literal notranslate"><span class="pre">Agent</span></code> class. The <code class="docutils literal notranslate"><span class="pre">Agent</span></code> class includes an <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, a <code class="docutils literal notranslate"><span class="pre">learn_episode</span></code> method, and a <code class="docutils literal notranslate"><span class="pre">learn</span></code> method. The <code class="docutils literal notranslate"><span class="pre">learn</span></code> method is pre-implemented and requires an <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> input along with additional parameters specified by <code class="docutils literal notranslate"><span class="pre">*param</span></code>. It returns a dictionary containing keys <code class="docutils literal notranslate"><span class="pre">loss</span></code> and <code class="docutils literal notranslate"><span class="pre">reward</span></code>, which record the performance metrics of the learning process.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">REINFORCEAgent</span><span class="p">(</span><span class="n">Agent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="n">policy</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">StepLR</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">learn_episode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">param</span><span class="p">):</span>
+        <span class="n">batch_size</span><span class="p">,</span> <span class="n">max_steps</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">param</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">episode_loss</span><span class="p">,</span> <span class="n">episode_reward</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
+            <span class="n">log_probs</span><span class="p">,</span> <span class="n">rewards</span><span class="p">,</span> <span class="n">steps</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+            <span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="n">done</span> <span class="ow">and</span> <span class="n">steps</span> <span class="o">&lt;</span> <span class="n">max_steps</span><span class="p">:</span>
+                <span class="n">action</span><span class="p">,</span> <span class="n">log_prob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">select_action</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+                <span class="n">next_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">item</span><span class="p">()))</span>
+                <span class="n">log_probs</span> <span class="o">+=</span> <span class="n">log_prob</span>
+                <span class="n">rewards</span> <span class="o">+=</span> <span class="n">reward</span> <span class="o">*</span> <span class="n">gamma</span> <span class="o">**</span> <span class="n">steps</span>
+                <span class="n">state</span> <span class="o">=</span> <span class="n">next_state</span>
+                <span class="n">steps</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">episode_loss</span> <span class="o">+=</span> <span class="o">-</span><span class="n">log_probs</span> <span class="o">*</span> <span class="n">reward</span> <span class="o">/</span> <span class="n">batch_size</span>
+            <span class="n">episode_reward</span> <span class="o">+=</span> <span class="n">reward</span> <span class="o">/</span> <span class="n">batch_size</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">episode_reward</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now test the performance of the <code class="docutils literal notranslate"><span class="pre">REINFORCEAgent</span></code> on the cartpole enviroment, varying the batch size. For the experiment, we tested batch size of <span class="math notranslate nohighlight">\(1, 8,\)</span> and <span class="math notranslate nohighlight">\(32\)</span>. For each of the agents, we let them learn for <span class="math notranslate nohighlight">\(300\)</span> episodes with decaying learning rate initialized at <span class="math notranslate nohighlight">\(10^{-3}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;CartPoleBulletEnv-v1&#39;</span><span class="p">)</span>
+<span class="n">policy</span> <span class="o">=</span> <span class="n">Policy</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">REINFORCEAgent</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">n_episodes</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_every</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We plot the results below. We see that increasing the batch size improves the performance of the model. THis can partly be the fact that we are using more data to train the model. However, note that using larger batch size also gives reward trajectories with smaller noise. One explanation is that the variance of the gradient estimator is smaller when using a larger batch size. Gradient variance is a problem for REINFORCE algorithm, in the next section we discuss methods of addressing this.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/7397fabcbbf2b1ac5ff826cbd3e7c38da2041ef5897ebe16fe03c986a732c7e4.png" src="../_images/7397fabcbbf2b1ac5ff826cbd3e7c38da2041ef5897ebe16fe03c986a732c7e4.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./PolicyGradient"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../ValueBasedMethods/Dueling-Q-Learning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Dueling Q Learning</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Actor-critic-methods.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Actor critic methods</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#policy-gradient-theorem-informal">9.1. Policy gradient theorem (Informal)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reinforce-implementation">9.2. REINFORCE Implementation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Raymond Tsao
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
