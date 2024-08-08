@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4787184b" />
   
@@ -460,9 +460,7 @@ document.write(`
 <section id="cliff-walking">
 <h2><span class="section-number">6.1. </span>Cliff walking<a class="headerlink" href="#cliff-walking" title="Link to this heading">#</a></h2>
 <p>We implement TD algorithm to estimate the value function of policies from the OpenAI gym Cliff walking enviroment. In the cliff walking enviroment, there are <span class="math notranslate nohighlight">\(48\)</span> states and <span class="math notranslate nohighlight">\(4\)</span> actions. When the agent arrive at the right-bottom corner, the agent recieves a reward of <span class="math notranslate nohighlight">\(+10\)</span>. When the agent arrive at the cliffs, the agent recieves a penalty of <span class="math notranslate nohighlight">\(-100\)</span>. The living penalty is set to <span class="math notranslate nohighlight">\(-1\)</span> for all states.</p>
-<div style="display: flex; justify-content: center;">
- <img src="figures/cliff_walking.gif" style="max-width: 50%; height: auto;">  
-</div>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/cliff_walking.gif"><img alt="fishy" class="bg-primary mb-1 align-center" src="../_images/cliff_walking.gif" style="width: 500px;" /></a>
 <p style="text-align: center; font-size: 14px;"> 
     <strong> Figure 1 </strong>: The cliff walking enviroment
 </p></section>
