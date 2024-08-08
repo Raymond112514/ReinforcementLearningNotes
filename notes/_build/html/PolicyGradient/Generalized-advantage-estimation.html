@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Notes on Reinforcement Learning
                 </a>
             </li>
         </ul>
@@ -194,17 +194,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Monte Carlo methods</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference methods</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Duel Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="current nav bd-sidenav">
@@ -432,7 +432,7 @@ document.write(`
     A(\mathbf{s}_t, \mathbf{a}_t) &amp;\approx r(\mathbf{s}_t, \mathbf{a}_t) + \gamma V(\mathbf{s}_{t+1}) - V(\mathbf{s}_t)
 \end{align*}
 \end{split}\]</div>
-<p>In the actor-critic algorithm, we often choose the latter estimator because it typically provides a lower variance estimate. This is because the variance of a sum grows linearly with the number of terms. However, it is important to note that this estimator is not unbiased, whereas the first one is. This creates a bias-variance tradeoff: the first estimator is unbiased but has high variance, while the second is biased but has lower variance. Is it then possible to find an estimator that effectively balances the tradeoff? In 2016, Schulman et al. introduced the Generalized Advantage Estimator (GAE), which is designed to achieve this balance through combining the above two estimators. <br></p>
+<p>In the actor-critic algorithm, we often choose the latter estimator because it typically provides a lower variance estimate. This is because the variance of a sum grows linearly with the number of terms. However, it is important to note that there is a bias-variance tradeoff between the two estimates: the first estimator is unbiased but has high variance, while the second is biased but has lower variance. Is it possible to find an estimator that effectively balances the trade-off between bias and variance? In 2016, Schulman et al. introduced the Generalized Advantage Estimator (GAE), which is designed to achieve this balance through combining the above two estimators [1]. <br></p>
 <p>Instead of using a one-step look forward estimate, the authors proposed using a <span class="math notranslate nohighlight">\(k\)</span> step look forward estimate:</p>
 <div class="math notranslate nohighlight">
 \[A^{(k)}(\mathbf{s}_t, \mathbf{a}_t) = r(\mathbf{s}_t, \mathbf{a}_t) + \gamma r(\mathbf{s}_{t+1}, \mathbf{a}_{t+1})+\gamma^2r(\mathbf{s}_{t+2}, \mathbf{a}_{t+2})+...+\gamma^{k-1}r(\mathbf{s}_{t+k-1}, \mathbf{a}_{t+k-1})+\gamma^k V(\mathbf{s}_t)\]</div>
@@ -497,6 +497,9 @@ A^{GAE(\lambda)} &amp;= (1-\lambda) (A^{(1)}+\lambda A^{(2)}+\lambda^2 A^{(3)}+.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ActorCriticGAEAgent</span><span class="p">(</span><span class="n">Agent</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation of Actor Critic agent with generalized advantage estimation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="n">policy</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
@@ -563,6 +566,8 @@ A^{GAE(\lambda)} &amp;= (1-\lambda) (A^{(1)}+\lambda A^{(2)}+\lambda^2 A^{(3)}+.
 <img alt="../_images/d7cbba31eede49c8b3c179b3c96269df599aba81bd9059124ba68018c242ba77.png" src="../_images/d7cbba31eede49c8b3c179b3c96269df599aba81bd9059124ba68018c242ba77.png" />
 </div>
 </div>
+<p><span style="font-size:20px;"><strong>Citations</strong></span></p>
+<p>[1] <a class="reference external" href="https://arxiv.org/pdf/1506.02438">https://arxiv.org/pdf/1506.02438</a></p>
 </section>
 </section>
 

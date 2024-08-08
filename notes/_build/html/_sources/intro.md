@@ -1,11 +1,10 @@
-# Welcome to your Jupyter Book
+# Notes on Reinforcement Learning
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
 
-Check out the content pages bundled with this sample book to see more.
+These are my notes on reinforcement learning, primarily based on Sutton and Barto's Reinforcement Learning and the Berkeley CS285: Deep Reinforcement Learning course. The notes are organized into three main sections:
 
-```{tableofcontents}
-```
+1. Markov Decision Process
+2. Value-Based Methods
+3. Policy-Based Methods
+
+And I'm currently in the process of adding model based methods!

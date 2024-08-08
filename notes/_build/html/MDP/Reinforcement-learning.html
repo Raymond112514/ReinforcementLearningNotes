@@ -67,10 +67,12 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'MDP/Reinforcement-learning';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Value estimation" href="../MonteCarlo/Monte-Carlo-value-estimation.html" />
+    <link rel="next" title="5. Monte Carlo methods" href="../MonteCarlo/Monte-Carlo-value-estimation.html" />
     <link rel="prev" title="3. Policy iteration" href="Policy-iteration.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -176,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Notes on Reinforcement Learning
                 </a>
             </li>
         </ul>
@@ -192,17 +194,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Monte Carlo methods</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference methods</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Duel Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="nav bd-sidenav">
@@ -412,7 +414,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reinforcement-learning">
 <h1><span class="section-number">4. </span>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Link to this heading">#</a></h1>
-<p>Given an MDP instance, there are two algorithms for finding the optimal policy: the value iteration method and the policy iteration method. While both methods are guaranteed to converge, empirically, the policy iteration method typically converges faster and is therefore often preferred. However, both methods require knowledge of the transition dynamics ( p(\mathbf{s}_{t+1} \mid \mathbf{s}_t, \mathbf{a}_t) ). Without the transition dynamics, performing the Bellman update becomes infeasible.</p>
+<p>Given an MDP instance, we now know two algorithms for finding the optimal policy: the value iteration method and the policy iteration method. While both methods are guaranteed to converge, empirically, the policy iteration method typically converges faster and is therefore often preferred. However, both methods require knowledge of the transition dynamics <span class="math notranslate nohighlight">\(p(\mathbf{s}_{t+1} \mid \mathbf{s}_t, \mathbf{a}_t)\)</span>. Without the transition dynamics, performing the Bellman update becomes infeasible.</p>
 <p>In real-life scenarios, the transition dynamics are often unknown or too complex to compute. For example, in the game of blackjack, although we could theoretically compute the transition dynamics for all possible states, doing so would be extremely challenging. Reinforcement learning methods aim to learn the optimal policy without needing to know the transition dynamics. In the following section, we discuss two classes of methods</p>
 <ol class="arabic simple">
 <li><p><strong>Value-based methods</strong>: These methods attempt to learn the value or action-value functions and use them for control.</p></li>
@@ -464,7 +466,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Value estimation</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Monte Carlo methods</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
