@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12. Trust region policy optimization &#8212; Notes on Reinforcement learning</title>
+    <title>13. Trust region policy optimization &#8212; Notes on Reinforcement learning</title>
   
   
   
@@ -72,8 +72,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'PolicyGradient/TRPO';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="13. Proximal policy gradient" href="Proximal-policy-gradient.html" />
-    <link rel="prev" title="11. Generalized advantage estimation" href="Generalized-advantage-estimation.html" />
+    <link rel="next" title="14. Proximal policy optimization" href="Proximal-policy-gradient.html" />
+    <link rel="prev" title="12. Generalized advantage estimation" href="Generalized-advantage-estimation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Notes on Reinforcement Learning
                 </a>
             </li>
         </ul>
@@ -186,34 +186,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Markov-decision-process.html">1. Markov decision process</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../MDP/Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.3. Convergence analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDP/Reinforcement-learning.html">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Monte Carlo methods</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference methods</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">7. Double Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">8. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Duel Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">9. Policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Actor-critic-methods.html">10. Actor critic methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Generalized-advantage-estimation.html">11. Generalized advantage estimation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Trust region policy optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Proximal-policy-gradient.html">13. Proximal policy gradient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Deterministic-policy-gradient-method.html">14. Deterministic policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Soft-actor-critic.html">15. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Actor-critic-methods.html">11. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Proximal-policy-gradient.html">14. Proximal policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -409,14 +410,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-policy-gradient">12.1. Natural policy gradient</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-kl-divergence">12.1.1. 1. Average KL divergence</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearize-objective-and-constraint">12.1.2. 2. Linearize objective and constraint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-policy-gradient">13.1. Natural policy gradient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-kl-divergence">13.1.1. 1. Average KL divergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearize-objective-and-constraint">13.1.2. 2. Linearize objective and constraint</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#truncated-natural-policy-gradient">12.2. Truncated natural policy gradient</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trust-region-policy-optimization-trpo">12.3. Trust region policy optimization (TRPO)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trpo-implementation">12.4. TRPO Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#truncated-natural-policy-gradient">13.2. Truncated natural policy gradient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trust-region-policy-optimization-trpo">13.3. Trust region policy optimization (TRPO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trpo-implementation">13.4. TRPO Implementation</a></li>
 </ul>
             </nav>
         </div>
@@ -429,7 +430,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="trust-region-policy-optimization">
-<h1><span class="section-number">12. </span>Trust region policy optimization<a class="headerlink" href="#trust-region-policy-optimization" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">13. </span>Trust region policy optimization<a class="headerlink" href="#trust-region-policy-optimization" title="Link to this heading">#</a></h1>
 <p>Let <span class="math notranslate nohighlight">\(\pi\)</span> denote a stochastic policy, and let <span class="math notranslate nohighlight">\(\eta(\pi)\)</span> represent its expected reward, given by</p>
 <div class="math notranslate nohighlight">
 \[
@@ -465,7 +466,7 @@ document.write(`
 \end{split}\]</div>
 <p>This means that optimizing <span class="math notranslate nohighlight">\(\mathcal{L}_{\pi}\)</span> will improve the expected reward <span class="math notranslate nohighlight">\(\eta\)</span> as long as the step size isn’t too large. However, it remains unclear how small the step size should be. In 2017, Schulman et al., in their paper “Trust Region Policy Optimization,” proved the following bound that provides insights into how different step sizes influence the expected reward.</p>
 <div class="proof theorem admonition" id="my-theorem">
-<p class="admonition-title"><span class="caption-number">Theorem 12.1 </span> (Improvement bound)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 13.1 </span> (Improvement bound)</p>
 <section class="theorem-content" id="proof-content">
 <p>Let</p>
 <div class="math notranslate nohighlight">
@@ -483,7 +484,7 @@ document.write(`
 \[\eta(\pi_{new}) \geq \mathcal{L}_{\pi_{old}}(\pi_{new}) - CD_{KL}^{\text{max}}(\pi_{old}, \pi_{new}) \hspace{5mm}\text{where}\hspace{5mm} C= \frac{4\epsilon \gamma}{(1-\gamma)^2}\]</div>
 <p>This lower bound motivates a policy iteration-like algorithm that generates a sequence of monotonically improving policies, as shown in the pseudocode below.</p>
 <div class="proof algorithm admonition" id="my-theorem">
-<p class="admonition-title"><span class="caption-number">Algorithm 12.1 </span> (Policy iteration algorithm)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 13.1 </span> (Policy iteration algorithm)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Inputs</strong> Initialized policy <span class="math notranslate nohighlight">\(\pi_0\)</span></p>
 <ol class="arabic">
@@ -502,7 +503,7 @@ document.write(`
 \[\eta(\pi_{i+1}) - \eta(\pi_i) \geq M_i(\pi_{i+1}) - M_i(\pi_i)\geq 0\]</div>
 <p>Even though the algorithm above is theoretically sound, solving the optimization problem in practice can be challenging. Therefore, it is often necessary to approximate the function to make the problem tractable.</p>
 <section id="natural-policy-gradient">
-<h2><span class="section-number">12.1. </span>Natural policy gradient<a class="headerlink" href="#natural-policy-gradient" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.1. </span>Natural policy gradient<a class="headerlink" href="#natural-policy-gradient" title="Link to this heading">#</a></h2>
 <p>We now replace the policies <span class="math notranslate nohighlight">\(\pi\)</span> with their corresponding parameters <span class="math notranslate nohighlight">\(\theta\)</span> in the notation above. Solving the optimization problem directly</p>
 <div class="math notranslate nohighlight">
 \[\max_{\theta}\;\mathcal{L}_{\theta_{old}}(\theta) - CD_{KL}^{\text{max}}(\theta_{old},\theta)\]</div>
@@ -511,14 +512,14 @@ document.write(`
 \[\max_{\theta}\;\mathcal{L}_{\theta_{old}}(\theta)\hspace{5mm}\text{subject to}\hspace{5mm}D_{KL}^{\text{max}}(\theta_{old},\theta)\leq \delta\]</div>
 <p>We will now discuss two simplifications to the optimization problem.</p>
 <section id="average-kl-divergence">
-<h3><span class="section-number">12.1.1. </span>1. Average KL divergence<a class="headerlink" href="#average-kl-divergence" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.1.1. </span>1. Average KL divergence<a class="headerlink" href="#average-kl-divergence" title="Link to this heading">#</a></h3>
 <p>In the optimization problem above, we need to ensure that the KL divergence on each state <span class="math notranslate nohighlight">\(\mathbf{s}\in \mathcal{S}\)</span> is smaller than <span class="math notranslate nohighlight">\(\delta\)</span>. This is intractable when the state space is large (lots of constraints!). TO address this, the authors proposed using average KL-divergence</p>
 <div class="math notranslate nohighlight">
 \[\overline{D}_{KL}^{\rho}(\theta_1, \theta_2) = \mathbb{E}_{\mathbf{s}\sim \rho}[D_{KL}(\pi_{\theta_1}(\cdot|\mathbf{s})||\pi_{\theta_2}(\cdot|\mathbf{s}))] \approx \frac{1}{N}\sum_{i=1}^N D_{KL}(\pi_{\theta_1}(\cdot|\mathbf{s}_i)||\pi_{\theta_2}(\cdot|\mathbf{s}_i))\]</div>
 <p>This is now managable since we can compute it using trajectory samples.</p>
 </section>
 <section id="linearize-objective-and-constraint">
-<h3><span class="section-number">12.1.2. </span>2. Linearize objective and constraint<a class="headerlink" href="#linearize-objective-and-constraint" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.1.2. </span>2. Linearize objective and constraint<a class="headerlink" href="#linearize-objective-and-constraint" title="Link to this heading">#</a></h3>
 <p>The second simplification we can make is to linearize both objective and constraint, this gives us</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -543,7 +544,7 @@ document.write(`
 \[\theta_{k+1} = \theta_{k} + \sqrt{\frac{2\delta }{g^T H^{-1}g}}H^{-1}g\]</div>
 <p>This motivates the natural policy gradient algorithm, presented below</p>
 <div class="proof algorithm admonition" id="natural-policy-gradient">
-<p class="admonition-title"><span class="caption-number">Algorithm 12.2 </span> (Natural policy gradient)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 13.2 </span> (Natural policy gradient)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Inputs</strong> Initialized policy <span class="math notranslate nohighlight">\(\pi_0\)</span></p>
 <ol class="arabic">
@@ -562,7 +563,7 @@ document.write(`
 </div></section>
 </section>
 <section id="truncated-natural-policy-gradient">
-<h2><span class="section-number">12.2. </span>Truncated natural policy gradient<a class="headerlink" href="#truncated-natural-policy-gradient" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.2. </span>Truncated natural policy gradient<a class="headerlink" href="#truncated-natural-policy-gradient" title="Link to this heading">#</a></h2>
 <p>Note that to perform policy update, we need to estimate the inverse of the Hessian matrix, this is numerically unstable thing to do. Instead of computing the inverse, we can consider solve</p>
 <div class="math notranslate nohighlight">
 \[Hx=g \implies x=H^{-1}g\]</div>
@@ -571,7 +572,7 @@ document.write(`
 \[\theta_{k+1} = \theta_{k} + \sqrt{\frac{2\delta }{g^T x}}x\]</div>
 <p>Which is a much more stable problem! We adjust our psuedocode based on this change</p>
 <div class="proof algorithm admonition" id="truncated-natural-policy-gradient">
-<p class="admonition-title"><span class="caption-number">Algorithm 12.3 </span> (Truncated natural policy gradient)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 13.3 </span> (Truncated natural policy gradient)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Inputs</strong> Initialized policy <span class="math notranslate nohighlight">\(\pi_0\)</span></p>
 <ol class="arabic">
@@ -590,10 +591,10 @@ document.write(`
 </section>
 </div></section>
 <section id="trust-region-policy-optimization-trpo">
-<h2><span class="section-number">12.3. </span>Trust region policy optimization (TRPO)<a class="headerlink" href="#trust-region-policy-optimization-trpo" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.3. </span>Trust region policy optimization (TRPO)<a class="headerlink" href="#trust-region-policy-optimization-trpo" title="Link to this heading">#</a></h2>
 <p>Our final touch to the algorithm is to note that we’ve made lots of estimates in the algorithm. This means that due to estimation error, it is very likely that the update step brings out out of the trust region. To address this issue, TRPO algorithm added another backtracking line search. It starts from the maximium step and gradually reduce the step to see whether their is a better step. The psuedocode is shown below</p>
 <div class="proof algorithm admonition" id="line-search">
-<p class="admonition-title"><span class="caption-number">Algorithm 12.4 </span> (Backtracking line search)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 13.4 </span> (Backtracking line search)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Inputs</strong> <span class="math notranslate nohighlight">\(\alpha\in (0,1)\)</span>, proposed step size</p>
 <div class="math notranslate nohighlight">
@@ -614,7 +615,7 @@ document.write(`
 </section>
 </div><p>The TRPO algorithm includes backtracking line search in the last step</p>
 <div class="proof algorithm admonition" id="trpo">
-<p class="admonition-title"><span class="caption-number">Algorithm 12.5 </span> (Trust region policy optimization)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 13.5 </span> (Trust region policy optimization)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Inputs</strong> Initialized policy <span class="math notranslate nohighlight">\(\pi_0\)</span></p>
 <ol class="arabic">
@@ -637,7 +638,7 @@ document.write(`
 </section>
 </div></section>
 <section id="trpo-implementation">
-<h2><span class="section-number">12.4. </span>TRPO Implementation<a class="headerlink" href="#trpo-implementation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.4. </span>TRPO Implementation<a class="headerlink" href="#trpo-implementation" title="Link to this heading">#</a></h2>
 <p>We now implement the TRPO algorithm and test its performance on cartpole enviroment. For the policy and value function, we use a one-layer neural network with hidden units of <span class="math notranslate nohighlight">\(128\)</span>. For the advantage, we use generalized advantage estimation algorithm.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -838,6 +839,8 @@ document.write(`
 <img alt="../_images/5f494c5516b03c0e74d385c7d0d6a067d25d791bb7fbb2f83e2a2f84d206e57f.png" src="../_images/5f494c5516b03c0e74d385c7d0d6a067d25d791bb7fbb2f83e2a2f84d206e57f.png" />
 </div>
 </div>
+<p><span style="font-size:20px;"><strong>Citations</strong></span></p>
+<p>[1] <a class="reference external" href="https://arxiv.org/abs/1502.05477">https://arxiv.org/abs/1502.05477</a></p>
 </section>
 </section>
 
@@ -877,7 +880,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Generalized advantage estimation</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Generalized advantage estimation</p>
       </div>
     </a>
     <a class="right-next"
@@ -885,7 +888,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Proximal policy gradient</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Proximal policy optimization</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -905,14 +908,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-policy-gradient">12.1. Natural policy gradient</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-kl-divergence">12.1.1. 1. Average KL divergence</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearize-objective-and-constraint">12.1.2. 2. Linearize objective and constraint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-policy-gradient">13.1. Natural policy gradient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-kl-divergence">13.1.1. 1. Average KL divergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearize-objective-and-constraint">13.1.2. 2. Linearize objective and constraint</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#truncated-natural-policy-gradient">12.2. Truncated natural policy gradient</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trust-region-policy-optimization-trpo">12.3. Trust region policy optimization (TRPO)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trpo-implementation">12.4. TRPO Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#truncated-natural-policy-gradient">13.2. Truncated natural policy gradient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trust-region-policy-optimization-trpo">13.3. Trust region policy optimization (TRPO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trpo-implementation">13.4. TRPO Implementation</a></li>
 </ul>
   </nav></div>
 

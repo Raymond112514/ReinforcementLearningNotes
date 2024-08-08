@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.4. Theoretic analysis &#8212; Notes on Reinforcement learning</title>
+    <title>2.3. Convergence analysis &#8212; Notes on Reinforcement learning</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4787184b" />
   
@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Notes on Reinforcement Learning
                 </a>
             </li>
         </ul>
@@ -186,34 +186,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Markov-decision-process.html">1. Markov decision process</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Value-iteration.html">2. Value iteration</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4. Theoretic analysis</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. Convergence analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reinforcement-learning.html">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Monte Carlo methods</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference methods</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">7. Double Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">8. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Duel Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">9. Policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">10. Actor critic methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">11. Generalized advantage estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/TRPO.html">12. Trust region policy optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">13. Proximal policy gradient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">14. Deterministic policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">15. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">11. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/TRPO.html">13. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">14. Proximal policy gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -397,7 +398,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Theoretic analysis</h1>
+    <h1>Convergence analysis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -411,18 +412,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="theoretic-analysis">
-<h1><span class="section-number">2.4. </span>Theoretic analysis<a class="headerlink" href="#theoretic-analysis" title="Link to this heading">#</a></h1>
-<p>In the previous section, we solve for the optimal value function <span class="math notranslate nohighlight">\(V^*(s)\)</span> according to the update</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="convergence-analysis">
+<h1><span class="section-number">2.3. </span>Convergence analysis<a class="headerlink" href="#convergence-analysis" title="Link to this heading">#</a></h1>
+<p>Recall that we estimate the optimal value function <span class="math notranslate nohighlight">\(V^*(\mathbf{s})\)</span> according to the update</p>
 <div class="math notranslate nohighlight">
-\[V_{k+1}(s) \leftarrow \max_a \sum_{s'} p(s'|s, a)[r_0+\gamma V_k(s)]\]</div>
-<p>It is important to show that such algorithm indeed converges to the optimal value function <span class="math notranslate nohighlight">\(V^*(s)\)</span>. To prove convergence, we introduce the Bellman operator <span class="math notranslate nohighlight">\(\mathcal{T}:\mathbb{R}^{|\mathcal{S}|}\rightarrow :\mathbb{R}^{|\mathcal{S}|}\)</span>. For any value function <span class="math notranslate nohighlight">\(V\in \mathbb{R}^{|\mathcal{S}|}\)</span>, define</p>
+\[V_{k+1}(\mathbf{s}) \leftarrow \max_{\mathbf{a}\in \mathcal{A}} \sum_{\mathbf{s}'} p(\mathbf{s}'|\mathbf{s}, \mathbf{a})[r_0+\gamma V_k(\mathbf{s})]\]</div>
+<p>We now show that the value iteration algorithm indeed converges to the optimal value function <span class="math notranslate nohighlight">\(V^*(\mathbf{s})\)</span>. To prove convergence, we introduce the Bellman operator <span class="math notranslate nohighlight">\(\mathcal{T}:\mathbb{R}^{|\mathcal{S}|}\rightarrow :\mathbb{R}^{|\mathcal{S}|}\)</span>. For any value function <span class="math notranslate nohighlight">\(V\in \mathbb{R}^{|\mathcal{S}|}\)</span>, define</p>
 <div class="math notranslate nohighlight">
-\[\mathcal{T} V(s) = \max_a \sum_{s'} p(s'|s, a)[r_0+\gamma V(s')]\]</div>
-<p>And therefore <span class="math notranslate nohighlight">\(\mathcal{T} V\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^{|\mathcal{S}|}\)</span>. Using this notation, we can compactly rewrite the value iteration update as</p>
+\[\mathcal{T} V(\mathbf{s}) = \sum_{\mathbf{s}'} p(\mathbf{s}'|\mathbf{s}, \mathbf{a})[r_0+\gamma V(\mathbf{s})]\]</div>
+<p>Which means that <span class="math notranslate nohighlight">\(\mathcal{T} V\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^{|\mathcal{S}|}\)</span>. Using this notation, the value iteration algorithm can be compactly represented as</p>
 <div class="math notranslate nohighlight">
 \[V_{k+1} = \mathcal{T}V_k\]</div>
-<p>We now that that as <span class="math notranslate nohighlight">\(k\to\infty\)</span>, <span class="math notranslate nohighlight">\(V_k\)</span> converges to the optimal value function <span class="math notranslate nohighlight">\(V^*\)</span>. We first show that <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> is a contraction mapping</p>
+<p>We want to prove that as <span class="math notranslate nohighlight">\(k\to\infty\)</span>, <span class="math notranslate nohighlight">\(V_k\)</span> converges to the optimal value function <span class="math notranslate nohighlight">\(V^*\)</span>. Before that, we first show that <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> is a contraction mapping.</p>
 <div class="proof theorem admonition" id="my-theorem">
 <p class="admonition-title"><span class="caption-number">Theorem 2.2 </span></p>
 <section class="theorem-content" id="proof-content">
@@ -435,16 +436,16 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-    ||\mathcal{T}U(s)-\mathcal{T}V(s)||_{\infty} &amp;= \max_s|\max_a \sum_{s'} p(s'|s, a)[r_0+\gamma V(s)] - \max_a \sum_{s'} p(s'|s, a)[r_0+\gamma U(s)]|\\
-    &amp;\leq \gamma\max_{s, a} |\sum_{s'} p(s'|s, a) (V(s)-U(s))|\\
-    &amp;\leq \gamma \bigg(\sum_{s'} p(s'|s, a)\bigg) \max_s |V(s)-U(s)|\\
+    ||\mathcal{T}U(\mathbf{s})-\mathcal{T}V(\mathbf{s})||_{\infty} &amp;= \max_\mathbf{s}|\max_\mathbf{a} \sum_{\mathbf{s}'} p(\mathbf{s}'|\mathbf{s}, \mathbf{a})[r_0+\gamma V(\mathbf{s})] - \max_\mathbf{a} \sum_{\mathbf{s}'} p(\mathbf{s}'|\mathbf{s}, \mathbf{s})[r_0+\gamma U(\mathbf{s})]|\\
+    &amp;\leq \gamma\max_{\mathbf{s}, \mathbf{a}} |\sum_{\mathbf{s}'} p(\mathbf{s}'|\mathbf{s}, \mathbf{a}) (V(\mathbf{s})-U(\mathbf{s}))|\\
+    &amp;\leq \gamma \bigg(\sum_{\mathbf{s}'} p(\mathbf{s}'|\mathbf{s}, \mathbf{a})\bigg) \max_\mathbf{s} |V(\mathbf{s})-U(\mathbf{s})|\\
     &amp;\leq \gamma||U-V||_{\infty}
 \end{align*}
 \end{split}\]</div>
 </div>
-<p>After proving Bellman operator is a contraction mapping, the remains follows from the standard fixed point theorem.</p>
+<p>With the result above, the remains follows from the standard fixed point theorem.</p>
 <div class="proof theorem admonition" id="my-theorem">
-<p class="admonition-title"><span class="caption-number">Theorem 2.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Theorem 2.2 </span> (Value iteration convergence)</p>
 <section class="theorem-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(V_k\)</span> be the updates defined by the Bellman operator, then</p>
 <div class="math notranslate nohighlight">
@@ -457,7 +458,6 @@ $<span class="math notranslate nohighlight">\(||V_k-V^*||_{\infty}\leq \gamma ||
 <div class="math notranslate nohighlight">
 \[\lim_{k\to\infty} ||V_k-V^*||_{\infty} = 0\implies \lim_{k\to\infty} V_k = V^*\]</div>
 </div>
-<p>This proves that value iteration indeed converges.</p>
 </section>
 
     <script type="text/x-thebe-config">

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Double Q Learning &#8212; Notes on Reinforcement learning</title>
+    <title>8. Double Q Learning &#8212; Notes on Reinforcement learning</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4787184b" />
   
@@ -72,8 +72,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'ValueBasedMethods/Double-Q-Learning';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Dueling Q Learning" href="Dueling-Q-Learning.html" />
-    <link rel="prev" title="6. Deep Q Learning" href="Deep-Q-Learning.html" />
+    <link rel="next" title="9. Duel Q Learning" href="Dueling-Q-Learning.html" />
+    <link rel="prev" title="7. Deep Q Learning" href="Deep-Q-Learning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Notes on Reinforcement Learning
                 </a>
             </li>
         </ul>
@@ -186,34 +186,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Markov-decision-process.html">1. Markov decision process</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../MDP/Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.3. Convergence analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDP/Reinforcement-learning.html">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Monte Carlo methods</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference methods</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Double Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Dueling-Q-Learning.html">8. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dueling-Q-Learning.html">9. Duel Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">9. Policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">10. Actor critic methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">11. Generalized advantage estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/TRPO.html">12. Trust region policy optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">13. Proximal policy gradient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">14. Deterministic policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">15. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">11. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/TRPO.html">13. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">14. Proximal policy gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -409,11 +410,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#double-q-learning-implementation">7.1. Double Q Learning Implementation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policy">7.1.1. Policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#double-q-learning-implementation">8.1. Double Q Learning Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policy">8.1.1. Policy</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lunar-lander">7.2. Lunar Lander</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lunar-lander">8.2. Lunar Lander</a></li>
 </ul>
             </nav>
         </div>
@@ -426,19 +427,19 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="double-q-learning">
-<h1><span class="section-number">7. </span>Double Q Learning<a class="headerlink" href="#double-q-learning" title="Link to this heading">#</a></h1>
-<p>One challenge of deep Q learning is that it has been observed that the action values estimated are often overestimated. To get an intuition why, suppose the action value for all states and action is zero, that is, <span class="math notranslate nohighlight">\(Q(\mathbf{s}, \mathbf{a})=0\)</span> for all <span class="math notranslate nohighlight">\(\mathbf{s}\in \mathcal{S}, \mathbf{a}\in \mathcal{A}\)</span>. The update target should be</p>
+<h1><span class="section-number">8. </span>Double Q Learning<a class="headerlink" href="#double-q-learning" title="Link to this heading">#</a></h1>
+<p>One challenge of deep Q-learning is that it often overestimates the action values. To understand why, consider a scenario where the action value for all states and actions is initially zero, i.e., <span class="math notranslate nohighlight">\(Q(\mathbf{s}, \mathbf{a}) = 0\)</span> for all <span class="math notranslate nohighlight">\(\mathbf{s} \in \mathcal{S}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{a} \in \mathcal{A}\)</span>. The update target should be:</p>
 <div class="math notranslate nohighlight">
 \[y=r+\max_{\mathbf{a}\in \mathcal{A}} Q(\mathbf{s}', \mathbf{a}) = r\]</div>
-<p>However, due to estimation error, it is highly possible that for some state action pair <span class="math notranslate nohighlight">\(Q(\mathbf{s}, \mathbf{a})&gt;0\)</span>. In this case, due to the maximum operator, the update target now becomes</p>
+<p>However, due to estimation errors, it is likely that for some state-action pairs <span class="math notranslate nohighlight">\(Q(\mathbf{s}, \mathbf{a}) &gt; 0\)</span>. Consequently, the update target becomes:</p>
 <div class="math notranslate nohighlight">
 \[y=r+\max_{\mathbf{a}\in \mathcal{A}} Q(\mathbf{s}', \mathbf{a}) &gt; r\]</div>
-<p>Therefore, the updated action value is overestimated! As time goes up, such overestimation bias accumulate and eventuualy affects the performance of the agent. In the paper Double Q Learning, Hassult proposed using two networks <span class="math notranslate nohighlight">\(Q_A, Q_B\)</span> to estimate the action value. In particular, we find the action maximizer using network <span class="math notranslate nohighlight">\(A\)</span>, and then use network <span class="math notranslate nohighlight">\(B\)</span> to evaluate the action value</p>
+<p>As a result, the updated action value is overestimated. Over time, this overestimation bias accumulates and adversely affects the agent’s performance. To address this issue, Hasselt proposed Double Q-Learning, which uses two networks, <span class="math notranslate nohighlight">\(Q_A\)</span> and <span class="math notranslate nohighlight">\(Q_B\)</span>, to estimate action values [1]. In particular, network <span class="math notranslate nohighlight">\(A\)</span> is used to find the action maximizer, while network <span class="math notranslate nohighlight">\(B\)</span> is used to evaluate the action value:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{a}^*=\underset{\mathbf{a}}{\text{argmax}}\;Q_A(\mathbf{s}, \mathbf{a})\Longrightarrow Q_B(\mathbf{s}, \mathbf{a}^*)\]</div>
-<p>The intuition is that even if <span class="math notranslate nohighlight">\(Q_A\)</span> have some estimation error, there is still a chance that <span class="math notranslate nohighlight">\(Q_B\)</span>’s estimation error counteract with that of <span class="math notranslate nohighlight">\(Q_A\)</span>. We can thus avoid maximization bias by disentangling our updates from biased estimates. The original algorithm looks like follows</p>
+<p>The intuition is that even if <span class="math notranslate nohighlight">\(Q_A\)</span> has some estimation error, there is a chance that <span class="math notranslate nohighlight">\(Q_B\)</span>’s estimation error will counteract it. By disentangling the updates from biased estimates, Double Q-Learning helps to avoid maximization bias. The original algorithm proceeds as follows:</p>
 <div class="proof algorithm admonition" id="my-algorithm">
-<p class="admonition-title"><span class="caption-number">Algorithm 7.2 </span> (Double Q Learning)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 8.2 </span> (Double Q Learning)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Inputs</strong> Separate action value <span class="math notranslate nohighlight">\(Q_A, Q_B\)</span></p>
 <ol class="arabic">
@@ -466,40 +467,40 @@ document.write(`
 </li>
 </ol>
 </section>
-</div><p>In the above algorithm, we need to train two action value function estimates, which can be computationally inefficient for deep neural network. After one year, Hassault proposed another double q learning scheme for deep neural network estimators. The psuedocode is provided below</p>
+</div><p>In the above algorithm, we need to train two action value function estimates, which can be computationally inefficient for deep neural network. Hassault, in another paper, proposed another double q learning scheme for deep neural network estimators [2]. The psuedocode is provided below</p>
 <div class="proof algorithm admonition" id="my-algorithm">
-<p class="admonition-title"><span class="caption-number">Algorithm 7.2 </span> (Deep double Q Learning)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 8.2 </span> (Deep double Q Learning)</p>
 <section class="algorithm-content" id="proof-content">
-<p><strong>Inputs</strong> Separate action value <span class="math notranslate nohighlight">\(Q_A, Q_B\)</span></p>
+<p><strong>Inputs</strong> Primary network <span class="math notranslate nohighlight">\(Q_\theta\)</span>, target network <span class="math notranslate nohighlight">\(Q_{\theta'}\)</span>.</p>
 <ol class="arabic">
 <li><p>While episode <span class="math notranslate nohighlight">\(n&lt;N\)</span>:</p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p>Select action <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> based on <span class="math notranslate nohighlight">\(Q_A\)</span> and <span class="math notranslate nohighlight">\(Q_B\)</span></p></li>
-<li><p>Choose randomly UPDATE_A or UPDATE_B</p></li>
-<li><p>If UPDATE_A</p>
-<ol class="arabic simple">
-<li><p>Define <span class="math notranslate nohighlight">\(\mathbf{a}^* = \underset{\mathbf{a}}{\text{argmax}}\;Q_A(\mathbf{s}, \mathbf{a})\)</span></p></li>
-<li><p>Update <span class="math notranslate nohighlight">\(Q_A\)</span></p></li>
+<li><p>Store transition <span class="math notranslate nohighlight">\((\mathbf{s}, \mathbf{a}, r, \mathbf{s}')\)</span> in replay buffer <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>.</p></li>
+<li><p>Sample a batch from <span class="math notranslate nohighlight">\(\mathcal{D}\)</span></p></li>
+<li><p>Compute target Q-value</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[Q_A(\mathbf{s}, \mathbf{a}) \leftarrow Q_A(\mathbf{s}, \mathbf{a})+\alpha (r+\gamma Q_B(\mathbf{s}', \mathbf{a}^*)-Q_A(\mathbf{s}, \mathbf{a})\]</div>
-</li>
-<li><p>If UPDATE_B</p>
-<ol class="arabic simple">
-<li><p>Define <span class="math notranslate nohighlight">\(\mathbf{a}^* = \underset{\mathbf{a}}{\text{argmax}}\;Q_B(\mathbf{s}, \mathbf{a})\)</span></p></li>
-<li><p>Update <span class="math notranslate nohighlight">\(Q_A\)</span></p></li>
+\[ y = r + \gamma Q_{\theta}(\mathbf{s}, \underset{\mathbf{a}}{\text{argmax}}\;Q_{\theta'}(\mathbf{s}', \mathbf{a}))\]</div>
+<ol class="arabic simple" start="5">
+<li><p>Perform gradient descent step on $<span class="math notranslate nohighlight">\((Q_\theta(\mathbf{s}, \mathbf{a})-y)^2\)</span>$</p></li>
+<li><p>Update target network parameters</p></li>
 </ol>
-<div class="math notranslate nohighlight">
-\[Q_B(\mathbf{s}, \mathbf{a}) \leftarrow Q_B(\mathbf{s}, \mathbf{a})+\alpha (r+\gamma Q_A(\mathbf{s}', \mathbf{a}^*)-Q_B(\mathbf{s}, \mathbf{a})\]</div>
-</li>
-</ol>
+<p>$$\theta’ \leftarrow \tau\cdot \theta + (1-\tau)\cdot \theta’</p>
 </li>
 </ol>
 </section>
-</div><p>Below, we implement double q learning and test its performance on Cartpole and LunarLander enviroment, and compare it to deep q learning.m</p>
+</div><p>Note that in this updated scheme, we are training only one network. The weights of the target network are now a moving average of the primary network’s weights. This technique, known as Polyak averaging, improves stability during training. Below, we implement Double Q-Learning and test its performance on the CartPole and LunarLander environments, comparing it to Deep Q-Learning.</p>
 <section id="double-q-learning-implementation">
-<h2><span class="section-number">7.1. </span>Double Q Learning Implementation<a class="headerlink" href="#double-q-learning-implementation" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
+<h2><span class="section-number">8.1. </span>Double Q Learning Implementation<a class="headerlink" href="#double-q-learning-implementation" title="Link to this heading">#</a></h2>
+<section id="policy">
+<h3><span class="section-number">8.1.1. </span>Policy<a class="headerlink" href="#policy" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>-q<span class="w"> </span>install<span class="w"> </span>pybullet
 <span class="o">!</span>pip<span class="w"> </span>-q<span class="w"> </span>install<span class="w"> </span>stable-baselines3<span class="o">[</span>extra<span class="o">]</span>
@@ -525,19 +526,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<section id="policy">
-<h3><span class="section-number">7.1.1. </span>Policy<a class="headerlink" href="#policy" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Policy</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dim</span><span class="p">,</span> <span class="n">action_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation of policy </span>
+<span class="sd">    The policy contains a q_value function and a target q_value function, which is not being trained</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">action_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Policy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">q_value</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">state_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">),</span>
-                                     <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-                                     <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">),</span>
-                                     <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-                                     <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">action_dim</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q_value</span> <span class="o">=</span> <span class="n">SimpleNeuralNetwork</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="n">state_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="n">action_dim</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">target_q_value</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q_value</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">action_space</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">action_dim</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
@@ -568,6 +568,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DoubleQLearningAgent</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation of double Q-learning agent</span>
+<span class="sd">    &quot;&quot;&quot;</span>   
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">buffer_max_len</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="n">policy</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
@@ -578,19 +581,20 @@ document.write(`
 
     <span class="k">def</span> <span class="nf">learn_episode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         <span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">train_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">train_reward</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">while</span> <span class="ow">not</span> <span class="n">done</span> <span class="ow">and</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">max_steps</span><span class="p">:</span>
+            <span class="c1"># 1. Store transition into replay buffer, then sample a batch</span>
             <span class="n">action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">select_action</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="n">epsilon</span><span class="p">)</span>
-            <span class="n">next_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+            <span class="n">next_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
             <span class="n">train_reward</span> <span class="o">+=</span> <span class="n">reward</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">next_state</span><span class="p">,</span> <span class="n">done</span><span class="p">)</span>
-
             <span class="n">states</span><span class="p">,</span> <span class="n">actions</span><span class="p">,</span> <span class="n">rewards</span><span class="p">,</span> <span class="n">next_states</span><span class="p">,</span> <span class="n">dones</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
         
+            <span class="c1"># 2. Update primary network</span>
             <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
                 <span class="n">opt_actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="p">(</span><span class="n">next_states</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
                 <span class="n">td_target</span> <span class="o">=</span> <span class="n">rewards</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">dones</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">q</span><span class="p">(</span><span class="n">next_states</span><span class="p">,</span> <span class="n">opt_actions</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
@@ -599,28 +603,18 @@ document.write(`
             <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
             <span class="n">train_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-
             <span class="n">state</span> <span class="o">=</span> <span class="n">next_state</span>
             <span class="n">step</span> <span class="o">+=</span> <span class="mi">1</span>
             
+            <span class="c1"># 3. Update target network via Polyak averaging</span>
             <span class="k">for</span> <span class="n">target_param</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">target_q_value</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">q_value</span><span class="o">.</span><span class="n">parameters</span><span class="p">()):</span>
                 <span class="n">target_param</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tau</span> <span class="o">*</span> <span class="n">param</span><span class="o">.</span><span class="n">data</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">tau</span><span class="p">)</span> <span class="o">*</span> <span class="n">target_param</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-
         <span class="k">return</span> <span class="n">train_loss</span><span class="p">,</span> <span class="n">train_reward</span>
-
-    <span class="k">def</span> <span class="nf">learn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_episodes</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">print_every</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
-        <span class="n">history</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;train_loss&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;reward&quot;</span><span class="p">:</span> <span class="p">[]}</span>
-        <span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">):</span>
-            <span class="n">loss</span><span class="p">,</span> <span class="n">reward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">learn_episode</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="n">epsilon</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">episode</span> <span class="o">/</span> <span class="n">n_episodes</span><span class="p">))</span>
-            <span class="n">history</span><span class="p">[</span><span class="s2">&quot;train_loss&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
-            <span class="n">history</span><span class="p">[</span><span class="s2">&quot;reward&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reward</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">episode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">print_every</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Episode </span><span class="si">{</span><span class="n">episode</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: reward: </span><span class="si">{</span><span class="n">reward</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">history</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>We compared the performance of the Double Q-Learning agent with the Deep Q-Learning agent. Both agents successfully learned the CartPole task, and there does not appear to be a significant difference in performance between them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;CartPoleBulletEnv-v1&#39;</span><span class="p">)</span>
@@ -639,7 +633,8 @@ document.write(`
 </section>
 </section>
 <section id="lunar-lander">
-<h2><span class="section-number">7.2. </span>Lunar Lander<a class="headerlink" href="#lunar-lander" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.2. </span>Lunar Lander<a class="headerlink" href="#lunar-lander" title="Link to this heading">#</a></h2>
+<p>We then trained both agents on the lunar lander environment, under the same hyperparameter setting as before. Both agents are trained for <span class="math notranslate nohighlight">\(500\)</span> epochs. It seems that double deep Q agent slightly outperforms deep Q agent after epoch <span class="math notranslate nohighlight">\(200\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">&quot;LunarLander-v2&quot;</span><span class="p">)</span>
@@ -655,6 +650,9 @@ document.write(`
 <img alt="../_images/b29085966df8d036f19ca1c78ec18b991baf79b1810154d0553380f107b4004f.png" src="../_images/b29085966df8d036f19ca1c78ec18b991baf79b1810154d0553380f107b4004f.png" />
 </div>
 </div>
+<p><span style="font-size:20px;"><strong>Citations</strong></span></p>
+<p>[1] <a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2010/file/091d584fced301b442654dd8c23b3fc9-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2010/file/091d584fced301b442654dd8c23b3fc9-Paper.pdf</a><br>
+[2] <a class="reference external" href="https://www.arxiv.org/pdf/1509.06461">https://www.arxiv.org/pdf/1509.06461</a></p>
 </section>
 </section>
 
@@ -694,7 +692,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Deep Q Learning</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Deep Q Learning</p>
       </div>
     </a>
     <a class="right-next"
@@ -702,7 +700,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Dueling Q Learning</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Duel Q Learning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -722,11 +720,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#double-q-learning-implementation">7.1. Double Q Learning Implementation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policy">7.1.1. Policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#double-q-learning-implementation">8.1. Double Q Learning Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policy">8.1.1. Policy</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lunar-lander">7.2. Lunar Lander</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lunar-lander">8.2. Lunar Lander</a></li>
 </ul>
   </nav></div>
 

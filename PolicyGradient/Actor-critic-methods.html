@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>10. Actor critic methods &#8212; Notes on Reinforcement learning</title>
+    <title>11. Actor critic methods &#8212; Notes on Reinforcement learning</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4787184b" />
   
@@ -72,8 +72,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'PolicyGradient/Actor-critic-methods';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11. Generalized advantage estimation" href="Generalized-advantage-estimation.html" />
-    <link rel="prev" title="9. Policy gradient method" href="Policy-gradient-method.html" />
+    <link rel="next" title="12. Generalized advantage estimation" href="Generalized-advantage-estimation.html" />
+    <link rel="prev" title="10. Policy gradient method" href="Policy-gradient-method.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Notes on Reinforcement Learning
                 </a>
             </li>
         </ul>
@@ -186,34 +186,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Markov-decision-process.html">1. Markov decision process</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../MDP/Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.3. Convergence analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDP/Reinforcement-learning.html">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Monte Carlo methods</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference methods</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">7. Double Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">8. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Duel Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">9. Policy gradient method</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Actor critic methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Generalized-advantage-estimation.html">11. Generalized advantage estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TRPO.html">12. Trust region policy optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Proximal-policy-gradient.html">13. Proximal policy gradient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Deterministic-policy-gradient-method.html">14. Deterministic policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Soft-actor-critic.html">15. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRPO.html">13. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Proximal-policy-gradient.html">14. Proximal policy gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -409,13 +410,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-approximation">10.1. Monte Carlo approximation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-difference-approximation">10.2. Temporal difference approximation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-algorithm">10.3. Actor critic algorithm</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-approximation">10.4. Actor critic approximation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policy-and-value-function-implementation">10.4.1. Policy and value function implementation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-with-monte-carlo-implementation">10.4.2. Actor critic with Monte Carlo implementation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-with-td-implementation">10.4.3. Actor critic with TD implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-value-estimation">11.1. Monte Carlo value estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-difference-value-estimation">11.2. Temporal difference value estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-algorithm">11.3. Actor critic algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-approximation">11.4. Actor critic approximation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policy-and-value-function-implementation">11.4.1. Policy and value function implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-with-monte-carlo-implementation">11.4.2. Actor critic with Monte Carlo implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-with-td-implementation">11.4.3. Actor critic with TD implementation</a></li>
 </ul>
 </li>
 </ul>
@@ -430,14 +431,14 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="actor-critic-methods">
-<h1><span class="section-number">10. </span>Actor critic methods<a class="headerlink" href="#actor-critic-methods" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Actor critic methods<a class="headerlink" href="#actor-critic-methods" title="Link to this heading">#</a></h1>
 <p>Recall that in policy gradient methods, the gradient estimate with to-go reward is given by</p>
 <div class="math notranslate nohighlight">
 \[J(\theta) = \mathbb{E}_{\tau\sim p_{\theta}(\tau)} \bigg[\sum_t\nabla_{\theta}\log \pi_{\theta}(\mathbf{a}_t|\mathbf{s}_t)\bigg(\sum_{t'\geq t} r(\mathbf{s}_{t'}, \mathbf{a}_{t'})\bigg)\bigg]\]</div>
 <p>Where the to-go reward serves as an unbiased estimator of the action value function <span class="math notranslate nohighlight">\(Q(\mathbf{s}, \mathbf{a})\)</span>. To further reduce the variance, we performed baseline subtraction. This gives us our final estimate</p>
 <div class="math notranslate nohighlight">
 \[J(\theta) = \mathbb{E}_{\tau\sim p_{\theta}(\tau)} \bigg[\sum_t\nabla_{\theta}\log \pi_{\theta}(\mathbf{a}_t|\mathbf{s}_t)\bigg(\sum_{t'\geq t} r(\mathbf{s}_{t'}, \mathbf{a}_{t'})-b\bigg)\bigg]\]</div>
-<p>Even though we have a formula for the optimal baseline, in practice, it is hard to compute, so other heuristics is typically used. However, finding a good baseline is another challenge. However, note that if we choose the baseline <span class="math notranslate nohighlight">\(b\)</span> to be the value function <span class="math notranslate nohighlight">\(V(\mathbf{s})\)</span>, then the gradient estimate can be written as</p>
+<p>Even though we have a formula for the optimal baseline, in practice, it is hard to compute, so other heuristics is typically used. Finding a good baseline is another challenge. However, note that if we choose the baseline <span class="math notranslate nohighlight">\(b\)</span> to be the value function <span class="math notranslate nohighlight">\(V(\mathbf{s})\)</span>, then the gradient estimate can be written as</p>
 <div class="math notranslate nohighlight">
 \[J(\theta) \approx \mathbb{E}_{\tau\sim p_{\theta}(\tau)} \bigg[\sum_t\nabla_{\theta}\log \pi_{\theta}(\mathbf{a}_t|\mathbf{s}_t)(Q(\mathbf{s}_t, \mathbf{a}_t)-V(\mathbf{s}_t))\bigg]\]</div>
 <p>Now the log-likelihood is weighted by <span class="math notranslate nohighlight">\(A(\mathbf{s}_t, \mathbf{a}_t)=Q(\mathbf{s}_t, \mathbf{a}_t)-V(\mathbf{s}_t)\)</span>. We call this term the advantage function, and it has a natrual interpretation: it represents whether the action <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> is better or worse than the agent’s default action in a given state. If taking the action <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> results in postive advantage, then its corresponding action probability would be raised. Conversely, if the advantage is negative, then its action probability would be lowered. <br></p>
@@ -450,12 +451,12 @@ document.write(`
     &amp;\approx \sum_{t'\geq t} \gamma^{t'}r(\mathbf{s}_{t'}, \mathbf{a}_{t'})
 \end{align*}
 \end{split}\]</div>
-<p>The advantage function is therefore estimated with</p>
+<p>Both of these choices are valid, but in practice, we choose the former estimate since it has lower variance (see generalized advantage estimation). The advantage function is therefore estimated with</p>
 <div class="math notranslate nohighlight">
 \[A(\mathbf{s}_t, \mathbf{a}_t) = r(\mathbf{s}_t, \mathbf{a}_t) + \gamma V_{\phi}(\mathbf{s}_{t+1})- V_{\phi}(\mathbf{s}_t)\]</div>
 <p>Now that we can compute the advantage function, we can use it to define the policy loss objective  <span class="math notranslate nohighlight">\(J(\theta)\)</span>. However, we still need to learn the value function <span class="math notranslate nohighlight">\(V_{\phi}\)</span>. To achieve this, we must first specify the targets for <span class="math notranslate nohighlight">\(V_{\phi}\)</span>. This can be done using two primary methods: the Monte Carlo approach or the Temporal Difference (TD) approach.</p>
-<section id="monte-carlo-approximation">
-<h2><span class="section-number">10.1. </span>Monte Carlo approximation<a class="headerlink" href="#monte-carlo-approximation" title="Link to this heading">#</a></h2>
+<section id="monte-carlo-value-estimation">
+<h2><span class="section-number">11.1. </span>Monte Carlo value estimation<a class="headerlink" href="#monte-carlo-value-estimation" title="Link to this heading">#</a></h2>
 <p>Recall that we can estimate the value function as</p>
 <div class="math notranslate nohighlight">
 \[V(\mathbf{s}_t) \approx \sum_{t'\geq t}r(\mathbf{s}_t, \mathbf{a}_t)\]</div>
@@ -463,8 +464,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[L(\phi) = \sum_{t} (V_{\phi}(\mathbf{s}_t) - \sum_{t'\geq t}r(\mathbf{s}_t, \mathbf{a}_t))^2\]</div>
 </section>
-<section id="temporal-difference-approximation">
-<h2><span class="section-number">10.2. </span>Temporal difference approximation<a class="headerlink" href="#temporal-difference-approximation" title="Link to this heading">#</a></h2>
+<section id="temporal-difference-value-estimation">
+<h2><span class="section-number">11.2. </span>Temporal difference value estimation<a class="headerlink" href="#temporal-difference-value-estimation" title="Link to this heading">#</a></h2>
 <p>To use Monte Carlo methods, we need to wait until the entire trajectory has been sampled before calculating the returns. Alternatively, we can use the Temporal Difference (TD) approach, which allows us to update the value function incrementally based on estimates from previous steps</p>
 <div class="math notranslate nohighlight">
 \[V(\mathbf{s}_t) \approx r(\mathbf{s}_t, \mathbf{a}_t) + \gamma V(\mathbf{s}_{t+1})\]</div>
@@ -473,10 +474,10 @@ document.write(`
 \[L(\phi) = \sum_{t} (r(\mathbf{s}_t, \mathbf{a}_t) + \gamma V(\mathbf{s}_{t+1})- V(\mathbf{s}_t) )^2\]</div>
 </section>
 <section id="actor-critic-algorithm">
-<h2><span class="section-number">10.3. </span>Actor critic algorithm<a class="headerlink" href="#actor-critic-algorithm" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Actor critic algorithm<a class="headerlink" href="#actor-critic-algorithm" title="Link to this heading">#</a></h2>
 <p>The psuedocode of the full actor critic algorithm is presented below</p>
 <div class="proof algorithm admonition" id="my-algorithm">
-<p class="admonition-title"><span class="caption-number">Algorithm 10.1 </span> (Actor critic algorithm)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 11.1 </span> (Actor critic algorithm)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Inputs</strong> Differentiable policy <span class="math notranslate nohighlight">\(\pi_{\theta}\)</span>, value function <span class="math notranslate nohighlight">\(V_{\phi}\)</span>, learning rate <span class="math notranslate nohighlight">\(\alpha\)</span>, number of episodes <span class="math notranslate nohighlight">\(N\)</span>, batch size <span class="math notranslate nohighlight">\(K\)</span></p>
 <ol class="arabic">
@@ -508,10 +509,9 @@ document.write(`
 </div><p>We now implement both types of actor critic algorithm and test its performance on Cartpole environment.</p>
 </section>
 <section id="actor-critic-approximation">
-<h2><span class="section-number">10.4. </span>Actor critic approximation<a class="headerlink" href="#actor-critic-approximation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>Actor critic approximation<a class="headerlink" href="#actor-critic-approximation" title="Link to this heading">#</a></h2>
 <section id="policy-and-value-function-implementation">
-<h3><span class="section-number">10.4.1. </span>Policy and value function implementation<a class="headerlink" href="#policy-and-value-function-implementation" title="Link to this heading">#</a></h3>
-<p>Both the policy and value function are parameterized with one layer neural network with hidden units of <span class="math notranslate nohighlight">\(128\)</span>.</p>
+<h3><span class="section-number">11.4.1. </span>Policy and value function implementation<a class="headerlink" href="#policy-and-value-function-implementation" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -546,6 +546,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Policy</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation of policy class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dim</span><span class="p">,</span> <span class="n">action_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Policy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">SimpleNeuralNetwork</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="n">state_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="n">action_dim</span><span class="p">,</span> <span class="n">final_layer</span><span class="o">=</span><span class="s2">&quot;Softmax&quot;</span><span class="p">)</span>
@@ -568,6 +571,9 @@ document.write(`
         <span class="k">return</span> <span class="n">log_prob</span>
 
 <span class="k">class</span> <span class="nc">ValueNetwork</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation of value function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">action_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ValueNetwork</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">SimpleNeuralNetwork</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="n">state_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="n">action_dim</span><span class="p">,</span> <span class="n">final_layer</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -580,10 +586,13 @@ document.write(`
 </div>
 </section>
 <section id="actor-critic-with-monte-carlo-implementation">
-<h3><span class="section-number">10.4.2. </span>Actor critic with Monte Carlo implementation<a class="headerlink" href="#actor-critic-with-monte-carlo-implementation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.4.2. </span>Actor critic with Monte Carlo implementation<a class="headerlink" href="#actor-critic-with-monte-carlo-implementation" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ActorCriticMCAgent</span><span class="p">(</span><span class="n">Agent</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation of actor critic agent that uses Monte Carlo estimate for value function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="n">policy</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
@@ -591,8 +600,6 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">policy_optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span> <span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value_optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">policy_scheduler</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">StepLR</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">policy_optimizer</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">value_scheduler</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">StepLR</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value_optimizer</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">learn_episode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">param</span><span class="p">):</span>
         <span class="n">batch_size</span><span class="p">,</span> <span class="n">max_steps</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">param</span>
@@ -617,6 +624,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>For both the policy and value function, we used a simple neural network with <span class="math notranslate nohighlight">\(128\)</span> hidden units. The agent is trained for <span class="math notranslate nohighlight">\(3500\)</span> episodes using Adam optimizer with learning rate <span class="math notranslate nohighlight">\(10^{-3}\)</span>. We tested the performance of agents using different batch size, as shown in the figure below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;CartPoleBulletEnv-v1&#39;</span><span class="p">)</span>
@@ -630,15 +638,18 @@ document.write(`
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/f9534d1c6b74023cbf1866a83b4b18dfc98bdbd6eac07185cdc526fd3cf1f1b4.png" src="../_images/f9534d1c6b74023cbf1866a83b4b18dfc98bdbd6eac07185cdc526fd3cf1f1b4.png" />
+<img alt="../_images/7abad8d63a251c615e92d4bbc5339c2f9dfd19e8a1724709be5c8fa892b9bfef.png" src="../_images/7abad8d63a251c615e92d4bbc5339c2f9dfd19e8a1724709be5c8fa892b9bfef.png" />
 </div>
 </div>
 </section>
 <section id="actor-critic-with-td-implementation">
-<h3><span class="section-number">10.4.3. </span>Actor critic with TD implementation<a class="headerlink" href="#actor-critic-with-td-implementation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.4.3. </span>Actor critic with TD implementation<a class="headerlink" href="#actor-critic-with-td-implementation" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ActorCriticTDAgent</span><span class="p">(</span><span class="n">Agent</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation of actor critic agent that uses temporal difference estimate for value function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="n">policy</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
@@ -646,8 +657,6 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">policy_optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span> <span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value_optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">policy_scheduler</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">StepLR</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">policy_optimizer</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">value_scheduler</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">StepLR</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value_optimizer</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">learn_episode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">param</span><span class="p">):</span>
         <span class="n">batch_size</span><span class="p">,</span> <span class="n">max_steps</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">param</span>
@@ -673,11 +682,15 @@ document.write(`
 </div>
 </div>
 </div>
+<p>We trained an agent using temporal difference estimates with the same architecture as before. Notably, only the agent with a batch size of <span class="math notranslate nohighlight">\(4\)</span> was able to train effectively. This is because the temporal difference method, being biased, requires slightly more samples to obtain a sufficiently accurate estimate of the value function. The temporal difference estimate, however, has much lower variance. This can be seen in reward plot. The agent using the Monte Carlo estimate exhibited much larger variations in episode return.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/8b4db3ac54a2c6ca78dfc65624d10f8fb20ee91ed5870a7dd8fd17d4da38ef14.png" src="../_images/8b4db3ac54a2c6ca78dfc65624d10f8fb20ee91ed5870a7dd8fd17d4da38ef14.png" />
+<img alt="../_images/f604fdd64a541082e7a8a9413a68949fec561e518f3e1345a957881641b854c3.png" src="../_images/f604fdd64a541082e7a8a9413a68949fec561e518f3e1345a957881641b854c3.png" />
 </div>
 </div>
+<p><span style="font-size:20px;"><strong>Citations</strong></span></p>
+<p>[1] <a class="reference external" href="https://lilianweng.github.io/posts/2018-04-08-policy-gradient/">https://lilianweng.github.io/posts/2018-04-08-policy-gradient/</a> <br>
+[2] <a class="reference external" href="https://rail.eecs.berkeley.edu/deeprlcourse/">https://rail.eecs.berkeley.edu/deeprlcourse/</a></p>
 </section>
 </section>
 </section>
@@ -718,7 +731,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Policy gradient method</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Policy gradient method</p>
       </div>
     </a>
     <a class="right-next"
@@ -726,7 +739,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Generalized advantage estimation</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Generalized advantage estimation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -746,13 +759,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-approximation">10.1. Monte Carlo approximation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-difference-approximation">10.2. Temporal difference approximation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-algorithm">10.3. Actor critic algorithm</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-approximation">10.4. Actor critic approximation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policy-and-value-function-implementation">10.4.1. Policy and value function implementation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-with-monte-carlo-implementation">10.4.2. Actor critic with Monte Carlo implementation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-with-td-implementation">10.4.3. Actor critic with TD implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-value-estimation">11.1. Monte Carlo value estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-difference-value-estimation">11.2. Temporal difference value estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-algorithm">11.3. Actor critic algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-approximation">11.4. Actor critic approximation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policy-and-value-function-implementation">11.4.1. Policy and value function implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-with-monte-carlo-implementation">11.4.2. Actor critic with Monte Carlo implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actor-critic-with-td-implementation">11.4.3. Actor critic with TD implementation</a></li>
 </ul>
 </li>
 </ul>

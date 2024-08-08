@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Monte Carlo tree search &#8212; Notes on Reinforcement learning</title>
+    <title>4. Reinforcement Learning &#8212; Notes on Reinforcement learning</title>
   
   
   
@@ -67,9 +67,13 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Model based methods/Monte-Carlo-tree-search';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'MDP/Reinforcement-learning';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Monte Carlo methods" href="../MonteCarlo/Monte-Carlo-value-estimation.html" />
+    <link rel="prev" title="3. Policy iteration" href="Policy-iteration.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -131,8 +135,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -176,42 +178,43 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Notes on Reinforcement Learning
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">A. Markov decision process</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../MDP/Markov-decision-process.html">1. Markov decision process</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MDP/Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Markov-decision-process.html">1. Markov decision process</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Value-iteration-convergence.html">2.3. Convergence analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../MDP/Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Monte Carlo methods</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference methods</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">7. Double Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">8. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Duel Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">9. Policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">10. Actor critic methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">11. Generalized advantage estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/TRPO.html">12. Trust region policy optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">13. Proximal policy gradient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">14. Deterministic policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">15. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">11. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/TRPO.html">13. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">14. Proximal policy gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -283,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FModel based methods/Monte-Carlo-tree-search.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FMDP/Reinforcement-learning.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +316,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/Model based methods/Monte-Carlo-tree-search.ipynb" target="_blank"
+      <li><a href="../_sources/MDP/Reinforcement-learning.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -395,7 +398,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Monte Carlo tree search</h1>
+    <h1>Reinforcement Learning</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -409,8 +412,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="monte-carlo-tree-search">
-<h1>Monte Carlo tree search<a class="headerlink" href="#monte-carlo-tree-search" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="reinforcement-learning">
+<h1><span class="section-number">4. </span>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Link to this heading">#</a></h1>
+<p>Given an MDP instance, we now know two algorithms for finding the optimal policy: the value iteration method and the policy iteration method. While both methods are guaranteed to converge, empirically, the policy iteration method typically converges faster and is therefore often preferred. However, both methods require knowledge of the transition dynamics <span class="math notranslate nohighlight">\(p(\mathbf{s}_{t+1} \mid \mathbf{s}_t, \mathbf{a}_t)\)</span>. Without the transition dynamics, performing the Bellman update becomes infeasible.</p>
+<p>In real-life scenarios, the transition dynamics are often unknown or too complex to compute. For example, in the game of blackjack, although we could theoretically compute the transition dynamics for all possible states, doing so would be extremely challenging. Reinforcement learning methods aim to learn the optimal policy without needing to know the transition dynamics. In the following section, we discuss two classes of methods</p>
+<ol class="arabic simple">
+<li><p><strong>Value-based methods</strong>: These methods attempt to learn the value or action-value functions and use them for control.</p></li>
+<li><p><strong>Policy-based methods</strong>: These methods parameterize the policy directly to solve the reward maximization problem.</p></li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
@@ -426,7 +435,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./Model based methods"
+            path: "./MDP"
         },
         predefinedOutput: true
     }
@@ -443,6 +452,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Policy-iteration.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Policy iteration</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../MonteCarlo/Monte-Carlo-value-estimation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Monte Carlo methods</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

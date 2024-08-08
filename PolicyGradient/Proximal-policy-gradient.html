@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>13. Proximal policy gradient &#8212; Notes on Reinforcement learning</title>
+    <title>14. Proximal policy optimization &#8212; Notes on Reinforcement learning</title>
   
   
   
@@ -72,8 +72,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'PolicyGradient/Proximal-policy-gradient';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="14. Deterministic policy gradient method" href="Deterministic-policy-gradient-method.html" />
-    <link rel="prev" title="12. Trust region policy optimization" href="TRPO.html" />
+    <link rel="next" title="15. Deterministic policy gradient method" href="Deterministic-policy-gradient-method.html" />
+    <link rel="prev" title="13. Trust region policy optimization" href="TRPO.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Notes on Reinforcement Learning
                 </a>
             </li>
         </ul>
@@ -186,34 +186,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Markov-decision-process.html">1. Markov decision process</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../MDP/Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.3. Convergence analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDP/Reinforcement-learning.html">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Monte Carlo methods</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference methods</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">7. Double Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">8. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Duel Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">9. Policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Actor-critic-methods.html">10. Actor critic methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Generalized-advantage-estimation.html">11. Generalized advantage estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TRPO.html">12. Trust region policy optimization</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Proximal policy gradient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Deterministic-policy-gradient-method.html">14. Deterministic policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Soft-actor-critic.html">15. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Actor-critic-methods.html">11. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRPO.html">13. Trust region policy optimization</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Proximal policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -399,7 +400,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Proximal policy gradient</h1>
+    <h1>Proximal policy optimization</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -409,7 +410,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ppo-implementation">13.1. PPO Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ppo-implementation">14.1. PPO Implementation</a></li>
 </ul>
             </nav>
         </div>
@@ -421,8 +422,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="proximal-policy-gradient">
-<h1><span class="section-number">13. </span>Proximal policy gradient<a class="headerlink" href="#proximal-policy-gradient" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="proximal-policy-optimization">
+<h1><span class="section-number">14. </span>Proximal policy optimization<a class="headerlink" href="#proximal-policy-optimization" title="Link to this heading">#</a></h1>
 <p>One drawback of trust region policy optimization is that it is difficult to implement. In 2017, Schulman et al. proposed a variant of TRPO—the proximal policy optimization algorithm (PPO). Unlike TRPO, which solves the following optimization problem</p>
 <div class="math notranslate nohighlight">
 \[
@@ -432,7 +433,7 @@ document.write(`
 <p>Instead of following the KL-divergence hard constraint, the proximal policy algorithm considers a soft constraint</p>
 <div class="math notranslate nohighlight">
 \[\max_{\theta}\;\mathbb{E}\bigg[\frac{\pi_{\theta}(\mathbf{a}_t|\mathbf{s}_t)}{\pi_{\theta_{\text{old}}}(\mathbf{a}_t|\mathbf{s}_t)}A_t-\beta \mathcal{D}_{KL}(\pi_{\theta}(\cdot|\mathbf{s}_t))||\pi_{\theta_{\text{old}}}(\cdot|\mathbf{s}_t))\bigg]\]</div>
-<p>One problem with this approach is the need to tune <span class="math notranslate nohighlight">\(\beta\)</span>. However, as shown by, empirically, there does not seem to exits <span class="math notranslate nohighlight">\(\beta\)</span> that works well in all range of problem. To address this Schulman et al proposed another objective. Let</p>
+<p>One problem with this approach is the need to tune <span class="math notranslate nohighlight">\(\beta\)</span>. However, it is hard to find a single value of <span class="math notranslate nohighlight">\(\beta\)</span> that performs well across different problems. To address this, Schulman et al proposed the clipped surrogate objective. Let</p>
 <div class="math notranslate nohighlight">
 \[r_t(\theta) = \frac{\pi_{\theta}(\mathbf{a}_t|\mathbf{s}_t)}{\pi_{\theta_{\text{old}}}(\mathbf{a}_t|\mathbf{s}_t)}\]</div>
 <p>And consider the objective</p>
@@ -440,7 +441,8 @@ document.write(`
 \[\mathcal{L}_{CLIP}(\theta) = \mathbb{E}\bigg[\min\{r_t(\theta)A_t, \text{clip}(r_t(\theta), 1-\epsilon, 1+\epsilon)A_t\}\bigg]\]</div>
 <p>Where <span class="math notranslate nohighlight">\(\epsilon\)</span> is some hyperparameter. Intuitively, we prevent <span class="math notranslate nohighlight">\(\pi_{\theta}\)</span> to be far way from <span class="math notranslate nohighlight">\(\pi_{\theta_{old}}\)</span> by clipping the ratio back to <span class="math notranslate nohighlight">\((1-\epsilon, 1+\epsilon)\)</span>.</p>
 <section id="ppo-implementation">
-<h2><span class="section-number">13.1. </span>PPO Implementation<a class="headerlink" href="#ppo-implementation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.1. </span>PPO Implementation<a class="headerlink" href="#ppo-implementation" title="Link to this heading">#</a></h2>
+<p>For the policy and value function, we copied directly from our TRPO implementation. For the advantage, we again uses generalized advantage estimation.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -506,7 +508,10 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PPOAgent</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PPOAgent</span><span class="p">(</span><span class="n">Agent</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation of proximal policy agent</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">state_dim</span><span class="p">,</span> <span class="n">action_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="n">Policy</span><span class="p">(</span><span class="n">state_dim</span><span class="p">,</span> <span class="n">action_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
@@ -519,31 +524,6 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">StepLR</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">policy_optimizer</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">eps</span> <span class="o">=</span> <span class="n">eps</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
-
-    <span class="k">def</span> <span class="nf">sample_trajectory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
-        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-        <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">state</span><span class="p">]</span>
-        <span class="n">actions</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">rewards</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">dones</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="ow">not</span> <span class="n">done</span> <span class="ow">and</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">max_steps</span><span class="p">:</span>
-            <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-                <span class="n">action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">select_action</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
-            <span class="n">next_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
-            <span class="n">reward</span> <span class="o">=</span> <span class="n">reward</span> <span class="o">**</span> <span class="n">step</span>
-            <span class="n">states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
-            <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
-            <span class="n">rewards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reward</span><span class="p">)</span>
-            <span class="n">dones</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">done</span><span class="p">)</span>
-            <span class="n">state</span> <span class="o">=</span> <span class="n">next_state</span>
-            <span class="n">step</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">states</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">states</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">actions</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">actions</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">rewards</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">rewards</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">dones</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">dones</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">states</span><span class="p">,</span> <span class="n">actions</span><span class="p">,</span> <span class="n">rewards</span><span class="p">,</span> <span class="n">dones</span>
 
     <span class="k">def</span> <span class="nf">learn_episode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">lambda_</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
@@ -577,21 +557,9 @@ document.write(`
 
             <span class="c1">## 4. Update old policy</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">policy_old</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">state_dict</span><span class="p">())</span>
-
             <span class="n">episode_reward</span> <span class="o">+=</span> <span class="n">rewards</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">/</span> <span class="n">batch_size</span>
             <span class="n">episode_loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">policy_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">+</span> <span class="n">value_loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span> <span class="o">/</span> <span class="n">batch_size</span>
         <span class="k">return</span> <span class="n">episode_loss</span><span class="p">,</span> <span class="n">episode_reward</span>
-
-    <span class="k">def</span> <span class="nf">learn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_episodes</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_every</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-        <span class="n">history</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;train_loss&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;reward&quot;</span><span class="p">:</span> <span class="p">[]}</span>
-        <span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">):</span>
-            <span class="n">loss</span><span class="p">,</span> <span class="n">reward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">learn_episode</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)</span>
-            <span class="n">history</span><span class="p">[</span><span class="s2">&quot;train_loss&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
-            <span class="n">history</span><span class="p">[</span><span class="s2">&quot;reward&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reward</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">episode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">print_every</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Episode </span><span class="si">{</span><span class="n">episode</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: average reward: </span><span class="si">{</span><span class="n">reward</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">history</span>
 
     <span class="k">def</span> <span class="nf">estimate_advantage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rewards</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">lambda_</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
@@ -611,6 +579,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>We trained five PPO agents on the CartPole task with different values of <span class="math notranslate nohighlight">\(\epsilon\)</span>. All agents were trained for <span class="math notranslate nohighlight">\(2000\)</span> epochs with a batch size of <span class="math notranslate nohighlight">\(1\)</span>. The results are shown below. Notably, <span class="math notranslate nohighlight">\(\epsilon\)</span> values that were either too large or too small did not perform well. In our experiments, setting <span class="math notranslate nohighlight">\(\epsilon = 0.1\)</span> yielded the best results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;CartPoleBulletEnv-v1&#39;</span><span class="p">)</span>
@@ -655,6 +624,8 @@ document.write(`
 <img alt="../_images/1046ba21b11d180ed614244c6a063b90dc549725fa99f9e5e1699afc03257a97.png" src="../_images/1046ba21b11d180ed614244c6a063b90dc549725fa99f9e5e1699afc03257a97.png" />
 </div>
 </div>
+<p><span style="font-size:20px;"><strong>Citations</strong></span></p>
+<p>[1] <a class="reference external" href="https://arxiv.org/pdf/1707.06347">https://arxiv.org/pdf/1707.06347</a></p>
 </section>
 </section>
 
@@ -694,7 +665,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Trust region policy optimization</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Trust region policy optimization</p>
       </div>
     </a>
     <a class="right-next"
@@ -702,7 +673,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Deterministic policy gradient method</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Deterministic policy gradient method</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -722,7 +693,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ppo-implementation">13.1. PPO Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ppo-implementation">14.1. PPO Implementation</a></li>
 </ul>
   </nav></div>
 
