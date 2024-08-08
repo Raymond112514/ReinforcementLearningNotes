@@ -212,7 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">11. Actor critic methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/TRPO.html">13. Trust region policy optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">14. Proximal policy gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">14. Proximal policy optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
@@ -460,16 +460,10 @@ document.write(`
 <section id="cliff-walking">
 <h2><span class="section-number">6.1. </span>Cliff walking<a class="headerlink" href="#cliff-walking" title="Link to this heading">#</a></h2>
 <p>We implement TD algorithm to estimate the value function of policies from the OpenAI gym Cliff walking enviroment. In the cliff walking enviroment, there are <span class="math notranslate nohighlight">\(48\)</span> states and <span class="math notranslate nohighlight">\(4\)</span> actions. When the agent arrive at the right-bottom corner, the agent recieves a reward of <span class="math notranslate nohighlight">\(+10\)</span>. When the agent arrive at the cliffs, the agent recieves a penalty of <span class="math notranslate nohighlight">\(-100\)</span>. The living penalty is set to <span class="math notranslate nohighlight">\(-1\)</span> for all states.</p>
-<head>
-  <meta charset="UTF-8">
-  <title>Katex</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-</head>
 <div style="display: flex; justify-content: center;">
- <img src="/Users/raymondtsao/Desktop/ReinforcementLearningNotes/notes/TD/figures/cliff_walking.gif" style="max-width: 50%; height: auto;">  
+ <img src="../figures/cliff_walking.gif" style="max-width: 50%; height: auto;">  
 </div>
+<p><img alt="Cliff Walking" src="TD/figures/cliff_walking.gif" /></p>
 <p style="text-align: center; font-size: 14px;"> 
     <strong> Figure 1 </strong>: The cliff walking enviroment
 </p></section>
