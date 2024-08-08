@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>10. Generalized advantage estimation &#8212; Notes on Reinforcement learning</title>
+    <title>12. Generalized advantage estimation &#8212; Notes on Reinforcement learning</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4787184b" />
   
@@ -72,8 +72,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'PolicyGradient/Generalized-advantage-estimation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11. Proximal policy gradient" href="Proximal-policy-gradient.html" />
-    <link rel="prev" title="9. Actor critic methods" href="Actor-critic-methods.html" />
+    <link rel="next" title="13. Trust region policy optimization" href="TRPO.html" />
+    <link rel="prev" title="11. Actor critic methods" href="Actor-critic-methods.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,32 +186,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Markov-decision-process.html">1. Markov decision process</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../MDP/Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.3. Convergence analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDP/Reinforcement-learning.html">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">7. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Dueling Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">8. Policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Actor-critic-methods.html">9. Actor critic methods</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Generalized advantage estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Proximal-policy-gradient.html">11. Proximal policy gradient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Deterministic-policy-gradient-method.html">12. Deterministic policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Soft-actor-critic.html">13. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Actor-critic-methods.html">11. Actor critic methods</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRPO.html">13. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Proximal-policy-gradient.html">14. Proximal policy gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -407,7 +410,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-advantage-estimator-implementation">10.1. Generalized advantage estimator implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-advantage-estimator-implementation">12.1. Generalized advantage estimator implementation</a></li>
 </ul>
             </nav>
         </div>
@@ -420,7 +423,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="generalized-advantage-estimation">
-<h1><span class="section-number">10. </span>Generalized advantage estimation<a class="headerlink" href="#generalized-advantage-estimation" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">12. </span>Generalized advantage estimation<a class="headerlink" href="#generalized-advantage-estimation" title="Link to this heading">#</a></h1>
 <p>In the previous section, we discussed two methods for estimating the advantage function:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -460,7 +463,7 @@ A^{GAE(\lambda)} &amp;= (1-\lambda) (A^{(1)}+\lambda A^{(2)}+\lambda^2 A^{(3)}+.
 \[A_t^{GAE(\lambda)} = \delta_t + (\lambda\gamma) A_{t+1}^{GAE(\lambda)}\]</div>
 <p>This means that we can compute the estimator efficiently by recursively applying this formula, starting from the end of an episode and working backwards to the beginning. Below we implement the actor critic algorithm using the generalized advantage estimator.</p>
 <section id="generalized-advantage-estimator-implementation">
-<h2><span class="section-number">10.1. </span>Generalized advantage estimator implementation<a class="headerlink" href="#generalized-advantage-estimator-implementation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.1. </span>Generalized advantage estimator implementation<a class="headerlink" href="#generalized-advantage-estimator-implementation" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -599,15 +602,15 @@ A^{GAE(\lambda)} &amp;= (1-\lambda) (A^{(1)}+\lambda A^{(2)}+\lambda^2 A^{(3)}+.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Actor critic methods</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Actor critic methods</p>
       </div>
     </a>
     <a class="right-next"
-       href="Proximal-policy-gradient.html"
+       href="TRPO.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Proximal policy gradient</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Trust region policy optimization</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -627,7 +630,7 @@ A^{GAE(\lambda)} &amp;= (1-\lambda) (A^{(1)}+\lambda A^{(2)}+\lambda^2 A^{(3)}+.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-advantage-estimator-implementation">10.1. Generalized advantage estimator implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-advantage-estimator-implementation">12.1. Generalized advantage estimator implementation</a></li>
 </ul>
   </nav></div>
 

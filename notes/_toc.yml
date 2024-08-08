@@ -12,6 +12,7 @@ parts:
     sections:
     - file: MDP/Value-iteration-convergence.ipynb
   - file: MDP/Policy-iteration.ipynb
+  - file: MDP/Reinforcement-learning.ipynb
 - caption: B. Value based methods
   numbered: True
   chapters: 
@@ -22,6 +23,7 @@ parts:
     sections:
     - file: TD/Temporal-difference-control.ipynb
   - file: ValueBasedMethods/Deep-Q-Learning.ipynb
+  - file: ValueBasedMethods/Double-Q-Learning.ipynb
   - file: ValueBasedMethods/Dueling-Q-Learning.ipynb
 - caption: C. Policy based methods
   numbered: True
@@ -29,6 +31,7 @@ parts:
   - file: PolicyGradient/Policy-gradient-method.ipynb
   - file: PolicyGradient/Actor-critic-methods.ipynb
   - file: PolicyGradient/Generalized-advantage-estimation.ipynb
+  - file: PolicyGradient/TRPO.ipynb
   - file: PolicyGradient/Proximal-policy-gradient.ipynb
   - file: PolicyGradient/Deterministic-policy-gradient-method.ipynb
   - file: PolicyGradient/Soft-actor-critic.ipynb

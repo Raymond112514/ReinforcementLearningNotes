@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>13. Soft actor critic &#8212; Notes on Reinforcement learning</title>
+    <title>16. Soft actor critic &#8212; Notes on Reinforcement learning</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4787184b" />
   
@@ -72,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'PolicyGradient/Soft-actor-critic';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="12. Deterministic policy gradient method" href="Deterministic-policy-gradient-method.html" />
+    <link rel="prev" title="15. Deterministic policy gradient method" href="Deterministic-policy-gradient-method.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,32 +185,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Markov-decision-process.html">1. Markov decision process</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../MDP/Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.3. Convergence analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDP/Reinforcement-learning.html">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">7. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Dueling Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">8. Policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Actor-critic-methods.html">9. Actor critic methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Generalized-advantage-estimation.html">10. Generalized advantage estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Proximal-policy-gradient.html">11. Proximal policy gradient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Deterministic-policy-gradient-method.html">12. Deterministic policy gradient method</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Actor-critic-methods.html">11. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRPO.html">13. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Proximal-policy-gradient.html">14. Proximal policy gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -406,8 +409,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-entropy-objective">13.1. Maximum entropy objective</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">13.2. Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-entropy-objective">16.1. Maximum entropy objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soft-actor-critic-implementation">16.2. Soft actor critic implementation</a></li>
 </ul>
             </nav>
         </div>
@@ -420,9 +423,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="soft-actor-critic">
-<h1><span class="section-number">13. </span>Soft actor critic<a class="headerlink" href="#soft-actor-critic" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">16. </span>Soft actor critic<a class="headerlink" href="#soft-actor-critic" title="Link to this heading">#</a></h1>
 <section id="maximum-entropy-objective">
-<h2><span class="section-number">13.1. </span>Maximum entropy objective<a class="headerlink" href="#maximum-entropy-objective" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.1. </span>Maximum entropy objective<a class="headerlink" href="#maximum-entropy-objective" title="Link to this heading">#</a></h2>
 <p>In a standard Markov Decision Process (MDP), the goal is to find a policy that maximizes the expected rewards. In the maximum entropy formulation, we add an additional constraint: we want the entropy of the policy to be as high as possible, namely</p>
 <div class="math notranslate nohighlight">
 \[J(\theta) = \mathbb{E}_{\tau\sim p_{\pi}(\tau)}\bigg[\sum_{t\geq 0} r(\mathbf{s}_t, \mathbf{a}_t) + \alpha \mathcal{H}(\pi(\cdot|\mathbf{s}_t))\bigg]\]</div>
@@ -441,10 +444,34 @@ Q(\mathbf{s}, \mathbf{a}) &amp;= \mathbb{E}_{\tau\sim p_{\pi}(\tau)}\bigg[\sum_{
 &amp;= r(\mathbf{s}, \mathbf{a}) + \mathbb{E}_{\tau\sim p_{\pi}(\tau)}\bigg[Q(\mathbf{s}_{t+1}, \mathbf{a}_{t+1}) -\alpha \log \pi_{\theta}(\mathbf{a}_{t+1}|\mathbf{s}_{t+1})\bigg]
 \end{align*}
 \end{split}\]</div>
-<p>With the <span class="math notranslate nohighlight">\(Q\)</span> function, this means that it is still possible to perform policy iteration in the maximum entropy framework. The resulting algorithm is known as soft policy iteration. The algorithm involves two steps, estimating the <span class="math notranslate nohighlight">\(Q\)</span> value, and then improving the policy.</p>
+<p>Which means that the associated Bellman operator is given by</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{T}Q(\mathbf{s}, \mathbf{a}) = r(\mathbf{s}, \mathbf{a}) +\gamma \mathbb{E}_{\tau\sim p_{\pi}(\tau)}\bigg[Q(\mathbf{s}_{t+1}, \mathbf{a}_{t+1}) -\alpha \log \pi_{\theta}(\mathbf{a}_{t+1}|\mathbf{s}_{t+1})\bigg]\]</div>
+<p>With the <span class="math notranslate nohighlight">\(Q\)</span> function, this means that it is still possible to perform policy iteration in the maximum entropy framework. The resulting algorithm is known as soft policy iteration. The algorithm follows the general policy tieration and involves two steps: estimating the <span class="math notranslate nohighlight">\(Q\)</span> value, and then improving the policy.</p>
+<div class="proof algorithm admonition" id="my-algorithm">
+<p class="admonition-title"><span class="caption-number">Algorithm 16.1 </span> (Soft policy iteration)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Inputs</strong> Differentiable policy <span class="math notranslate nohighlight">\(\pi_{\theta}\)</span>, value function <span class="math notranslate nohighlight">\(V_{\phi}\)</span>, learning rate <span class="math notranslate nohighlight">\(\alpha\)</span>, number of episodes <span class="math notranslate nohighlight">\(N\)</span></p>
+<ol class="arabic">
+<li><p>While episode <span class="math notranslate nohighlight">\(n&lt;N\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Sampling a batch of trajectory <span class="math notranslate nohighlight">\(\{\tau_i\}\)</span></p></li>
+<li><p>Update action value function following Bellman operator</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[Q(\mathbf{s}, \mathbf{a})\leftarrow r(\mathbf{s}, \mathbf{a}) +\gamma \mathbb{E}_{\tau\sim p_{\pi}(\tau)}\bigg[Q(\mathbf{s}_{t+1}, \mathbf{a}_{t+1}) -\alpha \log \pi_{\theta}(\mathbf{a}_{t+1}|\mathbf{s}_{t+1})\bigg]\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Update policy <span class="math notranslate nohighlight">\(\pi\)</span> by</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\pi \leftarrow \underset{\pi}{\text{argmin}}\;D_{KL}\bigg(\pi'(\cdot|\mathbf{s}_t)\bigg|\bigg|\frac{\exp(Q_{\pi_{old}}(\mathbf{s}_t, \cdot))}{Z_{\pi_{old}}(\mathbf{s}_t)}\bigg)\]</div>
+</li>
+</ol>
 </section>
-<section id="implementation">
-<h2><span class="section-number">13.2. </span>Implementation<a class="headerlink" href="#implementation" title="Link to this heading">#</a></h2>
+</div><p>In the case of value functions parameterized by neural network, we can approximate the soft policy iteration algorithm above.</p>
+</section>
+<section id="soft-actor-critic-implementation">
+<h2><span class="section-number">16.2. </span>Soft actor critic implementation<a class="headerlink" href="#soft-actor-critic-implementation" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -703,7 +730,7 @@ Q(\mathbf{s}, \mathbf{a}) &amp;= \mathbb{E}_{\tau\sim p_{\pi}(\tau)}\bigg[\sum_{
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Deterministic policy gradient method</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Deterministic policy gradient method</p>
       </div>
     </a>
 </div>
@@ -722,8 +749,8 @@ Q(\mathbf{s}, \mathbf{a}) &amp;= \mathbb{E}_{\tau\sim p_{\pi}(\tau)}\bigg[\sum_{
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-entropy-objective">13.1. Maximum entropy objective</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">13.2. Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-entropy-objective">16.1. Maximum entropy objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soft-actor-critic-implementation">16.2. Soft actor critic implementation</a></li>
 </ul>
   </nav></div>
 

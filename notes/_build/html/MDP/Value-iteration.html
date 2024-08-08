@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4787184b" />
   
@@ -72,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'MDP/Value-iteration';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.4. Theoretic analysis" href="Value-iteration-convergence.html" />
+    <link rel="next" title="2.3. Convergence analysis" href="Value-iteration-convergence.html" />
     <link rel="prev" title="1. Markov decision process" href="Markov-decision-process.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -186,32 +186,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Markov-decision-process.html">1. Markov decision process</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. Value iteration</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Value-iteration-convergence.html">2.3. Convergence analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reinforcement-learning.html">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">7. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Dueling Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">8. Policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">9. Actor critic methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">10. Generalized advantage estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">11. Proximal policy gradient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">12. Deterministic policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">13. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">11. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/TRPO.html">13. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">14. Proximal policy gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -407,9 +410,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gridworld-environment">2.1. GridWorld environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-iteration-implementation">2.2. Value iteration implementation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-optimal-policy">2.3. Learning the optimal policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-iteration-implementation">2.1. Value Iteration Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-optimal-policy">2.2. Learning the optimal policy</a></li>
 </ul>
             </nav>
         </div>
@@ -423,55 +425,64 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="value-iteration">
 <h1><span class="section-number">2. </span>Value iteration<a class="headerlink" href="#value-iteration" title="Link to this heading">#</a></h1>
-<p>The objective in a MDP is to find a policy <span class="math notranslate nohighlight">\(\pi^*\)</span> such that</p>
+<p>Recall that in a MDP instance, we want to find a policy <span class="math notranslate nohighlight">\(\pi\)</span> that maximizes the expected reward, which turns out to be the same as maximizing the value function <span class="math notranslate nohighlight">\(V(\mathbf{s})\)</span> at each state <span class="math notranslate nohighlight">\(\mathbf{s}\in \mathcal{S}\)</span>. Recall that the value function associated with a policy <span class="math notranslate nohighlight">\(\pi\)</span> is defined as</p>
 <div class="math notranslate nohighlight">
-\[\pi^*(a|s) = \underset{\pi}{\text{argmax}}\; V_{\pi}(s)\]</div>
-<p>Where <span class="math notranslate nohighlight">\(V_{\pi}(s)\)</span> is defined as</p>
-<div class="math notranslate nohighlight">
-\[ V_{\pi}(s) = \mathbb{E}_{a_0, s_1, a_1,...|s_0=s}[\sum_{i=0}^\infty \gamma^i r_{i}|s_0=s]\]</div>
-<p>Note that we can simplify <span class="math notranslate nohighlight">\(V_{\pi}(s)\)</span> to</p>
+\[\begin{split}
+\begin{align*}
+V_{\pi}(\mathbf{s}) &amp;= \mathbb{E}_{\tau\sim p_{\pi}(\tau)|\mathbf{s}_0=\mathbf{s}}[r(\tau)|\mathbf{s}_0=\mathbf{s}]\\
+&amp;= \mathbb{E}_{\mathbf{a}_0, \mathbf{s}_1, \mathbf{a}_1,...|\mathbf{s}_0=\mathbf{s}}[\sum_{t\geq 0} \gamma^t r_{t}|\mathbf{s}_0=\mathbf{s}]
+\end{align*}
+\end{split}\]</div>
+<p>Where the actions are determined by sampling from the policy <span class="math notranslate nohighlight">\(\pi(\mathbf{a}|\mathbf{s})\)</span>. To evaluate the value function of a policy <span class="math notranslate nohighlight">\(\pi\)</span>, we need to first simplify the value function</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align*}
-V_{\pi}(s) &amp;= \mathbb{E}_{a_0, s_1, a_1,...|s_0=s}[\sum_{i=0}^\infty \gamma^i r_{i}|s_0=s]\\
-&amp;= \mathbb{E}_{a_0, s_1, a_1,...|s_0=s}[r_0 + \gamma\sum_{i=0}^\infty \gamma^i r_{i}|s_0=s]\\
-&amp;= \mathbb{E}_{a_0|s_0=s}\bigg[\mathbb{E}_{s_1|a_0, s_0=s}\bigg[\mathbb{E}_{a_1, s_2, a_2...|s_1, a_0, s_0=s}[r_0 + \gamma\sum_{i=0}^\infty \gamma^i r_{i+1}|s_1, a_0, s_0=s]\bigg]\bigg]\\
-&amp;= \mathbb{E}_{a_0|s_0=s}\bigg[\mathbb{E}_{s_1|a_0, s_0=s}\bigg[\mathbb{E}_{a_1, s_2, a_2...|s_1}[r_0 + \gamma\sum_{i=0}^\infty \gamma^i r_{i+1}|s_1]\bigg]\bigg]\\
+V_{\pi}(\mathbf{s}) &amp;= \mathbb{E}_{\mathbf{a}_0, \mathbf{s}_1, \mathbf{a}_1,...|\mathbf{s}_0=\mathbf{s}}[\sum_{t\geq 0} \gamma^t r_{t}|\mathbf{s}_0=\mathbf{s}]\\
+&amp;= \mathbb{E}_{\mathbf{a}_0, \mathbf{s}_1, \mathbf{a}_1,...|\mathbf{s}_0=\mathbf{s}}[r_0 + \gamma\sum_{t\geq 0} \gamma^t r_{t+1}|\mathbf{s}_0=\mathbf{s}]\\
+&amp;= \mathbb{E}_{\mathbf{a}_0|\mathbf{s}_0=\mathbf{s}}\bigg[\mathbb{E}_{\mathbf{s}_1|\mathbf{a}_0, \mathbf{s}_0=\mathbf{s}}\bigg[\mathbb{E}_{\mathbf{a}_1, \mathbf{s}_2, \mathbf{a}_2,...|\mathbf{s}_0=\mathbf{s}, \mathbf{a}_0, \mathbf{s}_1}[r_0 + \gamma\sum_{t\geq 0} \gamma^t r_{t+1}|s_1, a_0, s_0=s]\bigg]\bigg]\\
+&amp;= \mathbb{E}_{\mathbf{a}_0|\mathbf{s}_0=\mathbf{s}}\bigg[\mathbb{E}_{\mathbf{s}_1|\mathbf{a}_0, \mathbf{s}_0=\mathbf{s}}\bigg[\mathbb{E}_{\mathbf{a}_1, \mathbf{s}_2, \mathbf{a}_2,...|\mathbf{s}_1}[r_0 + \gamma\sum_{t\geq 0} \gamma^t r_{t+1}|\mathbf{s}_1]\bigg]\bigg]\\
 \end{align*}
 \end{split}\]</div>
 <p>Where the third line follows from the law of total expectation, and the final line follows from the Markov property of an MDP. Assuming the size of state space <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> and action space <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is finite, then we have</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align*}
-V_{\pi}(s) &amp;= \mathbb{E}_{a_0|s_0=s}\bigg[\mathbb{E}_{s_1|a_0}\bigg[\mathbb{E}_{a_1, s_2, a_2...|s_1=s'}[r_0 + \gamma\sum_{i=0}^\infty \gamma^i r_{i+1}|s_1=s']\bigg]\bigg]\\
-&amp;= \sum_{a} \pi(a|s)\sum_{s'} p(s'|s, a) [r_0 +  \gamma \mathbb{E}_{a_1, s_2, a_2...|s_1=s'}[\sum_{i=0}^\infty \gamma^i r_{i+1}|s_1=s']]\\
-&amp;= \sum_{a} \pi(a|s)\sum_{s'} p(s'|s, a) [r_0 +  \gamma V_{\pi}(s')] \tag{1}\\
+V_{\pi}(\mathbf{s}) &amp;= \mathbb{E}_{\mathbf{a}_0|\mathbf{s}_0=\mathbf{s}}\bigg[\mathbb{E}_{\mathbf{s}_1|\mathbf{a}_0, \mathbf{s}_0=\mathbf{s}}\bigg[\mathbb{E}_{\mathbf{a}_1, \mathbf{s}_2, \mathbf{a}_2,...|\mathbf{s}_1}[r_0 + \gamma\sum_{t\geq 0} \gamma^t r_{t+1}|\mathbf{s}_1]\bigg]\bigg]\\
+&amp;= \sum_{\mathbf{a}\in \mathcal{A}} \pi(\mathbf{a}|\mathbf{s})\sum_{\mathbf{s}'} p(\mathbf{s}'|\mathbf{s}, \mathbf{a}) [r_0 +  \gamma \mathbb{E}_{\mathbf{a}_1, \mathbf{s}_2, \mathbf{a}_2...|\mathbf{s}_1=\mathbf{s}'}[\sum_{t\geq 0} \gamma^t r_{t+1}|\mathbf{s}_1=\mathbf{s}']]\\
+&amp;= \sum_{a} \pi(\mathbf{a}|\mathbf{s})\sum_{\mathbf{s}'} p(\mathbf{s}'|\mathbf{s}, \mathbf{a}) [r_0 +  \gamma V_{\pi}(\mathbf{s}')] \tag{1}\\
 \end{align*}
 \end{split}\]</div>
-<p>Equality <span class="math notranslate nohighlight">\((1)\)</span> is known as the Bellman equation of value function <span class="math notranslate nohighlight">\(V_{\pi}(s)\)</span>. Given a policy <span class="math notranslate nohighlight">\(\pi\)</span>, we can now find its corresponding value function by solving the linear system <span class="math notranslate nohighlight">\((1)\)</span>.</p>
-<p>We can derive similar results for action value functions. Using the same arguments</p>
+<p>The above equation is known as the Bellman equation of value function <span class="math notranslate nohighlight">\(V_{\pi}(s)\)</span>. Given a policy <span class="math notranslate nohighlight">\(\pi\)</span>, we can now find its corresponding value function by solving the linear system <span class="math notranslate nohighlight">\((1)\)</span>. We can derive similar results for action value function. By applying the same argument, we have the Bellman equation for the state action value function.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align*}
-Q_{\pi}(s, a) &amp;= \mathbb{E}_{s_{1}, a_{1}, s_2...|s_0=s, a_0=a}[\sum_{i=0}^\infty \gamma^i r_{i}|s_0=s, a_0=a]\\
-&amp;= \mathbb{E}_{s_{1}, a_{1}, s_2...|s_0=s, a_0=a}[r_0 + \gamma\sum_{i=0}^\infty \gamma^i r_{i+1}|s_0=s, a_0=a]\\
-&amp;= \mathbb{E}_{s_1|s_0=s, a_0=a}\bigg[\mathbb{E}_{a_1, s_2, a_2,...|s_1, s_0=s, a_0=a}[r_0 + \gamma\sum_{i=0}^\infty \gamma^i r_{i+1}|s_1, s_0=s, a_0=a]\bigg]\\
-&amp;= \mathbb{E}_{s_1|s_0=s, a_0=a}\bigg[\mathbb{E}_{a_1, s_2, a_2,...|s_1}[r_0 + \gamma\sum_{i=0}^\infty \gamma^i r_{i+1}|s_1]\bigg]\\
-&amp;= \sum_{s'} p(s'|s, a)[r_0 +  \gamma \mathbb{E}_{a_1, s_2, a_2,...|s_1=s'}[\sum_{i=0}^\infty \gamma^i r_{i+1}|s_{1}=s']]\\
-&amp;= \sum_{s'} p(s'|s, a) [r_0 +  \gamma V_{\pi}(s')] \tag{2}\\
+Q_{\pi}(\mathbf{s}, \mathbf{a}) &amp;= \mathbb{E}_{\mathbf{s}_{1}, \mathbf{a}_{1}, \mathbf{s}_2...|\mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}}[\sum_{t\geq 0} \gamma^t r_{t}|\mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}]\\
+&amp;= \mathbb{E}_{\mathbf{s}_{1}, \mathbf{a}_{1}, \mathbf{s}_2...|\mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}}[r_0 + \gamma\sum_{t\geq 0} \gamma^t r_{t+1}|\mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}]\\
+&amp;= \mathbb{E}_{\mathbf{s}_1|\mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}}\bigg[\mathbb{E}_{\mathbf{a}_1, \mathbf{s}_2, \mathbf{a}_2,...|\mathbf{s}_1, \mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}}[r_0 + \gamma\sum_{t\geq 0} \gamma^t r_{t+1}|\mathbf{s}_1, \mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}]\bigg]\\
+&amp;= \mathbb{E}_{\mathbf{s}_1|\mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}}\bigg[\mathbb{E}_{\mathbf{a}_1, \mathbf{s}_2, \mathbf{a}_2,...|\mathbf{s}_1}[r_0 + \gamma\sum_{t\geq 0} \gamma^t r_{t+1}|\mathbf{s}_1]\bigg]\\
+&amp;= \sum_{\mathbf{s}'\in \mathcal{S}} p(\mathbf{s}'|\mathbf{s}, \mathbf{a})[r_0 +  \gamma \mathbb{E}_{\mathbf{a}_1, \mathbf{s}_2, \mathbf{a}_2,...|\mathbf{s}_1=\mathbf{s}'}[\sum_{t\geq 0} \gamma^t r_{t+1}|\mathbf{s}_1=\mathbf{s}']]\\
+&amp;= \sum_{\mathbf{s}'\in \mathcal{S}} p(\mathbf{s}'|\mathbf{s}, \mathbf{a}) [r_0 +  \gamma V_{\pi}(\mathbf{s}')] \tag{2}\\
 \end{align*}
 \end{split}\]</div>
-<p>Since the Bellman equation holds for all policies, it also holds for the optimal policy <span class="math notranslate nohighlight">\(\pi^*\)</span>. Recall that</p>
+<p>Therefore, given any policy <span class="math notranslate nohighlight">\(\pi\)</span>, we can now evaluate both the value function and the state action value function using the Bellman equation</p>
 <div class="math notranslate nohighlight">
-\[V^*(s) = \max_a Q^*(s, a)\]</div>
-<p>By substituting <span class="math notranslate nohighlight">\((2)\)</span>, we see that the optimal value function must satisfy</p>
+\[\begin{split}
+\begin{align*}
+&amp; V_{\pi}(\mathbf{s})= \sum_{a} \pi(\mathbf{a}|\mathbf{s})\sum_{\mathbf{s}'} p(\mathbf{s}'|\mathbf{s}, \mathbf{a}) [r_0 +  \gamma V_{\pi}(\mathbf{s}')]\\
+&amp;Q_{\pi}(\mathbf{s}, \mathbf{a})  =\sum_{\mathbf{s}'\in \mathcal{S}} p(\mathbf{s}'|\mathbf{s}, \mathbf{a}) [r_0 +  \gamma V_{\pi}(\mathbf{s}')] 
+\end{align*}
+\end{split}\]</div>
+<p>Since the Bellman equation holds for all policies, it also holds for the optimal policy <span class="math notranslate nohighlight">\(\pi^*\)</span>. Let <span class="math notranslate nohighlight">\(V^*, Q^*\)</span> denote the value and action value function of the optimal policy. Since for the optimal policy, we in addition have</p>
 <div class="math notranslate nohighlight">
-\[V^*(s) = \max_a \sum_{s'} p(s'|s, a) [r_0 +  \gamma V_{\pi}(s')] \tag{3}\]</div>
-<p>This is known as Bellman’s optimality condition. Like the case of solving for <span class="math notranslate nohighlight">\(V_{\pi}(s)\)</span>, we can solve a linear system. However, in practice, we used an iteration algorithm to compute the solution.  The algorithm is known as value iteration.</p>
+\[V^*(\mathbf{s}) = \max_{\mathbf{a}\in \mathcal{A}} Q^*(\mathbf{s}, \mathbf{a})\]</div>
+<p>Substituting this into the Bellman equation, we see that the optimal value function must satisfy</p>
+<div class="math notranslate nohighlight">
+\[V^*(\mathbf{s}) = \max_{\mathbf{a}\in \mathcal{A}} \sum_{\mathbf{s}'} p(\mathbf{s}'|\mathbf{s}, \mathbf{a}) [r_0 +  \gamma V_{\pi}(\mathbf{s}')] \tag{3}\]</div>
+<p>This is known as Bellman’s optimality condition. Like the case of solving for <span class="math notranslate nohighlight">\(V_{\pi}(s)\)</span>, we can solve the linear system. However, in practice, we typically use an iteration approach. The algorithm is known as value iteration.</p>
 <div class="proof algorithm admonition" id="simple-algorithm">
 <p class="admonition-title"><span class="caption-number">Algorithm 2.1 </span> (Value iteration)</p>
 <section class="algorithm-content" id="proof-content">
-<p><strong>Inputs</strong> Given a MDP instance and policy <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<p><strong>Inputs</strong> A MDP instance and policy <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
 <p><strong>Output</strong> Compute the value function <span class="math notranslate nohighlight">\(V_{\pi}\)</span></p>
 <ol class="arabic simple">
 <li><p>Initialize an array <span class="math notranslate nohighlight">\(V(s)=0\)</span> for all <span class="math notranslate nohighlight">\(s\in \mathcal{S}\)</span></p></li>
@@ -483,13 +494,14 @@ for all state <span class="math notranslate nohighlight">\(s\in \mathcal{S}\)</s
 </li>
 </ol>
 </section>
-</div><section id="gridworld-environment">
-<h2><span class="section-number">2.1. </span>GridWorld environment<a class="headerlink" href="#gridworld-environment" title="Link to this heading">#</a></h2>
-<div class="cell tag_hide-cell docutils container">
+</div><section id="value-iteration-implementation">
+<h2><span class="section-number">2.1. </span>Value Iteration Implementation<a class="headerlink" href="#value-iteration-implementation" title="Link to this heading">#</a></h2>
+<p>We implement the value iteration algorithm and test its performance of the GridWorld enviroment. The GridWorld environment consists of a good exit state (green), bad exit state (red), walls (black), and normal blocks (white). The agent’s goal is to reach the good exit state without reaching the bad exit state. When the agent reaches the good exit state, it recieves a winning reward. On the other hand, if the agent reaches the bad exit state, it recieves a losing reward.</p>
+<div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -502,10 +514,6 @@ for all state <span class="math notranslate nohighlight">\(s\in \mathcal{S}\)</s
 </div>
 </details>
 </div>
-</section>
-<section id="value-iteration-implementation">
-<h2><span class="section-number">2.2. </span>Value iteration implementation<a class="headerlink" href="#value-iteration-implementation" title="Link to this heading">#</a></h2>
-<p>We implement the value iteration algorithm in the code cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">value_iteration</span><span class="p">(</span><span class="n">grid_world</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
@@ -540,7 +548,7 @@ for all state <span class="math notranslate nohighlight">\(s\in \mathcal{S}\)</s
 </div>
 </div>
 </div>
-<p>We then instantiate a GridWorld instance and apply value iteration on the cells.</p>
+<p>We instantiate a <span class="math notranslate nohighlight">\(5\times 5\)</span> GridWorld instance with living reward of <span class="math notranslate nohighlight">\(-0.1\)</span> (this encourages the agent to find the exit as soon as possible), a win reward of <span class="math notranslate nohighlight">\(1\)</span>, and a lose reward of <span class="math notranslate nohighlight">\(-1\)</span>. The transition dynamics is initalized randomly. We then execute the value iteration algorithm with <span class="math notranslate nohighlight">\(\gamma=0.1\)</span> for <span class="math notranslate nohighlight">\(100\)</span> iterations. The optimal value for each state is shown below. We see that states closer to the good exit states in general have a higher reward than states closer to the bad exit states.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -570,14 +578,17 @@ for all state <span class="math notranslate nohighlight">\(s\in \mathcal{S}\)</s
 </div>
 </section>
 <section id="learning-the-optimal-policy">
-<h2><span class="section-number">2.3. </span>Learning the optimal policy<a class="headerlink" href="#learning-the-optimal-policy" title="Link to this heading">#</a></h2>
-<p>Now we know how to solve Bellman optimality equation to get the optimal value fucntion <span class="math notranslate nohighlight">\(V^*(s)\)</span>. However, recall that our goal is to learn a policy that attains such optimal value. To do so, recall that the optimal policy can be determined using the action value function</p>
+<h2><span class="section-number">2.2. </span>Learning the optimal policy<a class="headerlink" href="#learning-the-optimal-policy" title="Link to this heading">#</a></h2>
+<p>Now we know how to solve Bellman optimality equation to estimate the optimal value fucntion <span class="math notranslate nohighlight">\(V^*(\mathbf{s})\)</span>. However, recall that our goal is to learn the optimal policy. To do so, recall that the optimal policy can be determined using the action value function</p>
 <div class="math notranslate nohighlight">
-\[\pi^*(a|s) = \underset{a\in \mathcal{A}}{\text{argmax}}\; q^*(s, a)\]</div>
-<p>Since <span class="math notranslate nohighlight">\(Q^*(s, a)\)</span> can be determined with <span class="math notranslate nohighlight">\(V^*(s)\)</span></p>
+\[\pi^*(\mathbf{a}|\mathbf{s}) = \underset{\mathbf{a}\in \mathcal{A}}{\text{argmax}}\; Q^*(\mathbf{s}, \mathbf{a})\]</div>
+<p>Since <span class="math notranslate nohighlight">\(Q^*(\mathbf{s}, \mathbf{a})\)</span> can be determined from <span class="math notranslate nohighlight">\(V^*(s)\)</span></p>
 <div class="math notranslate nohighlight">
-\[Q^*(s, a) = \sum_{s'} p(s'|s, a) [r_0 +  \gamma V^*(s')]\]</div>
-<p>Once we have computed the action value fucntion, we can then determine the optimal policy. Below we first implement a function to extract the action value function, and also a function that extracts the optimal policy from the learned q-values.</p>
+\[Q^*(\mathbf{s}, \mathbf{a}) = \sum_{\mathbf{s}'\in \mathcal{S}} p(\mathbf{s}'|\mathbf{s}, \mathbf{a}) [r_0 +  \gamma V^*(\mathbf{s}')] \]</div>
+<p>In other words, the optimal policy is given by greedily selecting the best action</p>
+<div class="math notranslate nohighlight">
+\[\pi^*(\mathbf{a}|\mathbf{s}) = \underset{\mathbf{a}\in \mathcal{A}}{\text{argmax}}\;\sum_{\mathbf{s}'\in \mathcal{S}} p(\mathbf{s}'|\mathbf{s}, \mathbf{a}) [r_0 +  \gamma V^*(\mathbf{s}')]\]</div>
+<p>Once we have computed the action value fucntion, we can then determine the optimal policy. Below we first implement a function to extract the action value function, and also a function that extracts the optimal policy from the learned action values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_q_values</span><span class="p">(</span><span class="n">grid_world</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
@@ -651,7 +662,7 @@ for all state <span class="math notranslate nohighlight">\(s\in \mathcal{S}\)</s
 <img alt="../_images/ec62a35eb8ddd26be3ed371784f2f0e0a2d558171f90b4b18448a408bd4c9826.png" src="../_images/ec62a35eb8ddd26be3ed371784f2f0e0a2d558171f90b4b18448a408bd4c9826.png" />
 </div>
 </div>
-<p>And the learned policy is given by</p>
+<p>The final learned policy is illustrated below. States that are closer to the bad exit are more likely to move away from it, while states closer to the good exit are attracted towards it.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -718,7 +729,7 @@ for all state <span class="math notranslate nohighlight">\(s\in \mathcal{S}\)</s
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.4. </span>Theoretic analysis</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Convergence analysis</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -738,9 +749,8 @@ for all state <span class="math notranslate nohighlight">\(s\in \mathcal{S}\)</s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gridworld-environment">2.1. GridWorld environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-iteration-implementation">2.2. Value iteration implementation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-optimal-policy">2.3. Learning the optimal policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-iteration-implementation">2.1. Value Iteration Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-optimal-policy">2.2. Learning the optimal policy</a></li>
 </ul>
   </nav></div>
 

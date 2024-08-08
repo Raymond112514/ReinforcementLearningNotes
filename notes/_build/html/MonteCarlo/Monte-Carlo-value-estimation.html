@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. Value estimation &#8212; Notes on Reinforcement learning</title>
+    <title>5. Value estimation &#8212; Notes on Reinforcement learning</title>
   
   
   
@@ -72,8 +72,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'MonteCarlo/Monte-Carlo-value-estimation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.5. Monte Carlo control" href="Monte-Carlo-Control.html" />
-    <link rel="prev" title="3. Policy iteration" href="../MDP/Policy-iteration.html" />
+    <link rel="next" title="5.5. Monte Carlo control" href="Monte-Carlo-Control.html" />
+    <link rel="prev" title="4. Reinforcement Learning" href="../MDP/Reinforcement-learning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,32 +186,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Markov-decision-process.html">1. Markov decision process</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../MDP/Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.3. Convergence analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDP/Reinforcement-learning.html">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">4. Value estimation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">5. Value estimation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">7. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Dueling Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">8. Policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">9. Actor critic methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">10. Generalized advantage estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">11. Proximal policy gradient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">12. Deterministic policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">13. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">11. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/TRPO.html">13. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">14. Proximal policy gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -407,10 +410,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-visit-v-s-every-visit-monte-carlo">4.1. First-visit v.s. every visit Monte Carlo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blackjack">4.2. BlackJack</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-of-value-functions">4.3. Estimating of value functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-of-q-value-function">4.4. Estimating of q-value function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-visit-v-s-every-visit-monte-carlo">5.1. First-visit v.s. every visit Monte Carlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blackjack">5.2. BlackJack</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mc-value-estimation-implementation">5.3. MC Value Estimation Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mc-action-value-estimation-implementation">5.4. MC Action Value Estimation Implementation</a></li>
 </ul>
             </nav>
         </div>
@@ -423,25 +426,31 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="value-estimation">
-<h1><span class="section-number">4. </span>Value estimation<a class="headerlink" href="#value-estimation" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>Value estimation<a class="headerlink" href="#value-estimation" title="Link to this heading">#</a></h1>
 <p>Not being able to access the transition probability poses two challenges for us to find the optimal policy</p>
 <ol class="arabic simple">
-<li><p>We can no longer apply dynamic programming methods like value iteration and policy iteration since both requires knowing the transition probability <span class="math notranslate nohighlight">\(p(s'|s,a)\)</span></p></li>
-<li><p>Knowing value functions <span class="math notranslate nohighlight">\(V^*(s)\)</span> is no longer sufficient for us to determine the optimal action, since the <span class="math notranslate nohighlight">\(q^*\)</span>-function also depends on <span class="math notranslate nohighlight">\(p(s'|s,a)\)</span>.</p></li>
+<li><p>We can no longer apply dynamic programming methods like value iteration and policy iteration since both requires knowing the transition probability <span class="math notranslate nohighlight">\(p(\mathbf{s}'|\mathbf{s},\mathbf{a})\)</span></p></li>
+<li><p>Knowing value functions <span class="math notranslate nohighlight">\(V^*(\mathbf{s})\)</span> is no longer sufficient for us to determine the optimal action, since the action value function also depends on <span class="math notranslate nohighlight">\(p(\mathbf{s}'|\mathbf{s},\mathbf{a})\)</span>.</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[q^*(s,a) = \sum_{s'} p(s'|s, a) [r+\gamma V^*(s)]\]</div>
-<p>One way of coming around this problem is to directly estimate the <span class="math notranslate nohighlight">\(V_{\pi}(s)\)</span> and <span class="math notranslate nohighlight">\(q_{\pi}(s,a)\)</span> directly through sampling. Since both functions are essentially expectations, recall that we can estimate expectations through</p>
+\[Q^*(s,a) = \sum_{\mathbf{s}'} p(\mathbf{s}'|\mathbf{s}, \mathbf{a}) [r+\gamma V^*(\mathbf{s})]\]</div>
+<p>One way of coming around this problem is to directly estimate the <span class="math notranslate nohighlight">\(V_{\pi}(\mathbf{s})\)</span> and <span class="math notranslate nohighlight">\(Q_{\pi}(\mathbf{s},\mathbf{s})\)</span> using Monte Carlo methods. Since both functions are conditional expectation over rewards, recall that we can estimate expectations through</p>
 <div class="math notranslate nohighlight">
 \[\mathbb{E}[X] \approx \frac{1}{n}\sum_{i=1}^n X_i\]</div>
 <p>Where <span class="math notranslate nohighlight">\(X_i\)</span> are samples from the distribution for <span class="math notranslate nohighlight">\(X\)</span>. This suggests that we can estimate the value function by sampling from trajectories starting with <span class="math notranslate nohighlight">\(s_0=s\)</span> and then compute the culmulative reward.</p>
 <section id="first-visit-v-s-every-visit-monte-carlo">
-<h2><span class="section-number">4.1. </span>First-visit v.s. every visit Monte Carlo<a class="headerlink" href="#first-visit-v-s-every-visit-monte-carlo" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span>First-visit v.s. every visit Monte Carlo<a class="headerlink" href="#first-visit-v-s-every-visit-monte-carlo" title="Link to this heading">#</a></h2>
 <p>We can implement the Monte Carlo method in two different ways. In the first-visit Monte Carlo, we estimate the value function as the</p>
 </section>
 <section id="blackjack">
-<h2><span class="section-number">4.2. </span>BlackJack<a class="headerlink" href="#blackjack" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
+<h2><span class="section-number">5.2. </span>BlackJack<a class="headerlink" href="#blackjack" title="Link to this heading">#</a></h2>
+<p>We test both algorithms in the Blackjack environment from OpenAI Gym. In Blackjack, the player’s goal is to achieve a hand value as close to 21 as possible without exceeding it. Each card in the deck has a specific value: number cards are worth their face value, face cards are worth 10, and aces can be valued as either 1 or 11. During gameplay, players decide between two actions: “hit” or “stick.” To “hit” means to draw an additional card to increase the hand’s value, while to “stick” means to keep the current hand and end their turn. Players compete against the dealer, who must draw cards until their hand totals at least 17.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>-q<span class="w"> </span>install<span class="w"> </span>gym
 
@@ -453,16 +462,8 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
 <span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;Blackjack-v1&#39;</span><span class="p">,</span> <span class="n">natural</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sab</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="estimating-of-value-functions">
-<h2><span class="section-number">4.3. </span>Estimating of value functions<a class="headerlink" href="#estimating-of-value-functions" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">player_sum_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>       
+
+<span class="n">player_sum_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>       
 <span class="n">dealer_card_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>   
 <span class="n">usable_ace_range</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
 
@@ -473,6 +474,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of available states: 640
 Number of available actions: 2
@@ -480,6 +482,10 @@ Number of available actions: 2
 </div>
 </div>
 </div>
+</section>
+<section id="mc-value-estimation-implementation">
+<h2><span class="section-number">5.3. </span>MC Value Estimation Implementation<a class="headerlink" href="#mc-value-estimation-implementation" title="Link to this heading">#</a></h2>
+<p>We implement the value estimation algorithm for both first visit and every visit Monte Carlo method. We use the implementation to evaluate the strategy that stick at 20 or 21 and otherwise hit. The ran the algorithm for <span class="math notranslate nohighlight">\(500000\)</span> iterations. And the estimated value function is shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MonteCarloValue</span><span class="p">:</span>
@@ -530,20 +536,7 @@ Number of available actions: 2
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">stick_at_20_or_21</span><span class="p">(</span><span class="n">Policy</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Implementation of a simple Blackjack policy </span>
-<span class="sd">    We stick at 20 or 21 else hit.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -559,9 +552,15 @@ Number of available actions: 2
 </div>
 </div>
 </section>
-<section id="estimating-of-q-value-function">
-<h2><span class="section-number">4.4. </span>Estimating of q-value function<a class="headerlink" href="#estimating-of-q-value-function" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
+<section id="mc-action-value-estimation-implementation">
+<h2><span class="section-number">5.4. </span>MC Action Value Estimation Implementation<a class="headerlink" href="#mc-action-value-estimation-implementation" title="Link to this heading">#</a></h2>
+<p>We can also use Monte Carlo methods to estimate the action value function. We modified the implementation slightly. We again test the algorithm on the same strategy as before.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MonteCarloQValue</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -613,7 +612,9 @@ Number of available actions: 2
 </pre></div>
 </div>
 </div>
+</details>
 </div>
+<p>One challenge with the Monte Carlo approach is that, when using a deterministic policy, it becomes difficult to estimate the action value function for unexplored states. This issue is particularly problematic in control problems where the goal is to derive the optimal policy, as unexplored states might have higher potential payoffs. We address this challenge in the next section.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">policy</span> <span class="o">=</span> <span class="n">stick_at_20_or_21</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">actions</span><span class="p">)</span>
@@ -663,12 +664,12 @@ Number of available actions: 2
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../MDP/Policy-iteration.html"
+       href="../MDP/Reinforcement-learning.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Policy iteration</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Reinforcement Learning</p>
       </div>
     </a>
     <a class="right-next"
@@ -676,7 +677,7 @@ Number of available actions: 2
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.5. </span>Monte Carlo control</p>
+        <p class="prev-next-title"><span class="section-number">5.5. </span>Monte Carlo control</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -696,10 +697,10 @@ Number of available actions: 2
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-visit-v-s-every-visit-monte-carlo">4.1. First-visit v.s. every visit Monte Carlo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blackjack">4.2. BlackJack</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-of-value-functions">4.3. Estimating of value functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-of-q-value-function">4.4. Estimating of q-value function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-visit-v-s-every-visit-monte-carlo">5.1. First-visit v.s. every visit Monte Carlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blackjack">5.2. BlackJack</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mc-value-estimation-implementation">5.3. MC Value Estimation Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mc-action-value-estimation-implementation">5.4. MC Action Value Estimation Implementation</a></li>
 </ul>
   </nav></div>
 

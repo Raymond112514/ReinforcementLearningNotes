@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4787184b" />
   
@@ -67,6 +67,8 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'MDP/Markov-decision-process';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -184,32 +186,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Markov decision process</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Value-iteration-convergence.html">2.3. Convergence analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reinforcement-learning.html">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">7. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Dueling Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">8. Policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">9. Actor critic methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">10. Generalized advantage estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">11. Proximal policy gradient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">12. Deterministic policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">13. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Actor-critic-methods.html">11. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/TRPO.html">13. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Proximal-policy-gradient.html">14. Proximal policy gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Deterministic-policy-gradient-method.html">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PolicyGradient/Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -382,7 +387,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -398,6 +405,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-function-and-action-value-function">1.1. Value function and action value function</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -409,7 +424,49 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="markov-decision-process">
 <h1><span class="section-number">1. </span>Markov decision process<a class="headerlink" href="#markov-decision-process" title="Link to this heading">#</a></h1>
-<p>Some text about MDP…..</p>
+<p>A Markov decision process (MDP) model contains four elements</p>
+<ol class="arabic simple">
+<li><p>State space <span class="math notranslate nohighlight">\(\mathcal{S}\)</span></p></li>
+<li><p>Action space <span class="math notranslate nohighlight">\(\mathcal{A}\)</span></p></li>
+<li><p>Transition dynamics <span class="math notranslate nohighlight">\(p(\mathbf{s}', r|\mathbf{s}, \mathbf{a})\)</span></p></li>
+<li><p>Reward dynamics <span class="math notranslate nohighlight">\(r(\mathbf{s}, \mathbf{a})\)</span></p></li>
+</ol>
+<p>An agent, starting at state <span class="math notranslate nohighlight">\(\mathbf{s}\in \mathcal{S}\)</span>, takes an action <span class="math notranslate nohighlight">\(\mathbf{a}\in \mathcal{A}\)</span>, recieves reward <span class="math notranslate nohighlight">\(r(\mathbf{s}, \mathbf{a})\)</span> and arrive at a new state <span class="math notranslate nohighlight">\(\mathbf{s}'\)</span> according to the transition dynamics <span class="math notranslate nohighlight">\(p(\mathbf{s}', r|\mathbf{s}, \mathbf{a})\)</span>. If we continue this process, we get a trajectory <span class="math notranslate nohighlight">\(\tau=(\mathbf{s}_1, \mathbf{a}_1, r_1, \mathbf{s}_2, \mathbf{a}_2, r_2,...)\)</span>, which could potentially goes on forever. Given any trajectory <span class="math notranslate nohighlight">\(\tau\)</span>, we define the reward associated as</p>
+<div class="math notranslate nohighlight">
+\[r(\tau) = \sum_{t\geq 0} \gamma^t r_t\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\gamma\in (0,1)\)</span> denotes the discount factor that prevents the reward <span class="math notranslate nohighlight">\(r(\tau)\)</span> to diverge. Naturally, our goal is to find a policy that maximizes the reward. A policy <span class="math notranslate nohighlight">\(\pi(\mathbf{a}|\mathbf{s})\)</span> maps a state to a distribution over actions. If we follow along <span class="math notranslate nohighlight">\(\pi\)</span> in the MDP, then it induces a distribution over the trajectory, which, by the Markov property, can be expressed as</p>
+<div class="math notranslate nohighlight">
+\[p_{\pi}(\tau) = p(\mathbf{s}_0)\prod_{t\geq 0}\pi(\mathbf{a}_t|\mathbf{s}_t) p(\mathbf{s}_{t+1}|\mathbf{s}_t, \mathbf{a}_t)\]</div>
+<p>We can also define the expected reward associated with a policy,</p>
+<div class="math notranslate nohighlight">
+\[\eta(\pi) = \mathbb{E}_{\tau\sim p_{\pi}(\tau)}[r(\tau)]\]</div>
+<p>The goal is MDP is to find a policy that maximizes the expected reward.</p>
+<section id="value-function-and-action-value-function">
+<h2><span class="section-number">1.1. </span>Value function and action value function<a class="headerlink" href="#value-function-and-action-value-function" title="Link to this heading">#</a></h2>
+<p>Two quantities of particular interest in a Markov Decision Process (MDP) are the value function <span class="math notranslate nohighlight">\(V(\mathbf{s})\)</span> and the state action value function <span class="math notranslate nohighlight">\(Q(\mathbf{s}, \mathbf{a})\)</span>. The value function is defined as the expected reward starting from <span class="math notranslate nohighlight">\(\mathbf{s}\)</span></p>
+<div class="math notranslate nohighlight">
+\[V_{\pi}(\mathbf{s}) = \mathbb{E}_{\tau\sim p_{\pi}(\tau)|\mathbf{s}_0=\mathbf{s}}[r(\tau)|\mathbf{s}_0=\mathbf{s}]\]</div>
+<p>By applying the law of total expectation, we see that it is related the the expected reward</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\eta(\pi) &amp;= \mathbb{E}_{\mathbf{s}_0\sim p(\mathbf{s}_0)}[\mathbb{E}_{\tau\sim p_{\pi}(\tau)|\mathbf{s}_0=\mathbf{s}}[r(\tau)|\mathbf{s}_0=\mathbf{s}]]\\
+&amp;= \mathbb{E}_{\mathbf{s}_0\sim p(\mathbf{s}_0)}[V_{\pi}(\mathbf{s}_0)]
+\end{align*}
+\end{split}\]</div>
+<p>Since we can’t optimize the prior distribution <span class="math notranslate nohighlight">\(p(\mathbf{s}_0)\)</span>, maximizing the expected reward is equivalent as maximizing the value function for all states <span class="math notranslate nohighlight">\(\mathbf{s}\in \mathcal{S}\)</span>. The state action value function, on the other hand, is defined as the expected starting starting at state <span class="math notranslate nohighlight">\(\mathbf{s}\)</span> and taking action <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[Q_{\pi}(\mathbf{s}, \mathbf{a}) = \mathbb{E}_{\tau\sim p_{\pi}(\tau)|\mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}}[r(\tau)|\mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}]\]</div>
+<p>By applying the law of total probabilities again, we see that the state action value function is related to the value function</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+V_{\pi}(\mathbf{s}) &amp;= \mathbb{E}_{\mathbf{a}_0\sim \pi(\cdot|\mathbf{s}_0)}[ \mathbb{E}_{\tau\sim p_{\pi}(\tau)|\mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}}[r(\tau)|\mathbf{s}_0=\mathbf{s}, \mathbf{a}_0=\mathbf{a}]]\\
+&amp;= \mathbb{E}_{\mathbf{a}_0\sim \pi(\cdot|\mathbf{s}_0)}[Q_{\pi}(\mathbf{s}, \mathbf{a})]
+\end{align*}
+\end{split}\]</div>
+<p>In the next section, we introduce a simple algorithm of estimating the optimal policy using these two functions.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -467,7 +524,20 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-function-and-action-value-function">1.1. Value function and action value function</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

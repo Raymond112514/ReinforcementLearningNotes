@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12. Deterministic policy gradient method &#8212; Notes on Reinforcement learning</title>
+    <title>15. Deterministic policy gradient method &#8212; Notes on Reinforcement learning</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4787184b" />
   
@@ -72,8 +72,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'PolicyGradient/Deterministic-policy-gradient-method';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="13. Soft actor critic" href="Soft-actor-critic.html" />
-    <link rel="prev" title="11. Proximal policy gradient" href="Proximal-policy-gradient.html" />
+    <link rel="next" title="16. Soft actor critic" href="Soft-actor-critic.html" />
+    <link rel="prev" title="14. Proximal policy gradient" href="Proximal-policy-gradient.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,32 +186,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Markov-decision-process.html">1. Markov decision process</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../MDP/Value-iteration.html">2. Value iteration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.4. Theoretic analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MDP/Value-iteration-convergence.html">2.3. Convergence analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../MDP/Policy-iteration.html">3. Policy iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDP/Reinforcement-learning.html">4. Reinforcement Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">B. Value based methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">4. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">4.5. Monte Carlo control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-value-estimation.html">5. Value estimation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MonteCarlo/Monte-Carlo-Control.html">5.5. Monte Carlo control</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">5. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">5.3. Temporal difference control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TD/Temporal-difference.html">6. Temporal difference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../TD/Temporal-difference-control.html">6.3. Temporal difference control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">6. Deep Q Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">7. Dueling Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Deep-Q-Learning.html">7. Deep Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Double-Q-Learning.html">8. Double Q Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ValueBasedMethods/Dueling-Q-Learning.html">9. Dueling Q Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C. Policy based methods</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">8. Policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Actor-critic-methods.html">9. Actor critic methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Generalized-advantage-estimation.html">10. Generalized advantage estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Proximal-policy-gradient.html">11. Proximal policy gradient</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Deterministic policy gradient method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Soft-actor-critic.html">13. Soft actor critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Policy-gradient-method.html">10. Policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Actor-critic-methods.html">11. Actor critic methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Generalized-advantage-estimation.html">12. Generalized advantage estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TRPO.html">13. Trust region policy optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Proximal-policy-gradient.html">14. Proximal policy gradient</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Deterministic policy gradient method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Soft-actor-critic.html">16. Soft actor critic</a></li>
 </ul>
 
     </div>
@@ -407,12 +410,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-deterministic-policy-gradient">12.1. Deep deterministic policy gradient</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-value-function-update">12.1.1. Action value function update</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration">12.1.2. Exploration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-deterministic-policy-gradient">15.1. Deep deterministic policy gradient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-value-function-update">15.1.1. Action value function update</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration">15.1.2. Exploration</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ddpg-implementation">12.2. DDPG Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ddpg-implementation">15.2. DDPG Implementation</a></li>
 </ul>
             </nav>
         </div>
@@ -425,7 +428,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="deterministic-policy-gradient-method">
-<h1><span class="section-number">12. </span>Deterministic policy gradient method<a class="headerlink" href="#deterministic-policy-gradient-method" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">15. </span>Deterministic policy gradient method<a class="headerlink" href="#deterministic-policy-gradient-method" title="Link to this heading">#</a></h1>
 <p>The Deterministic Policy Gradient (DPG) algorithm was proposed by Silver et al. in 2015. Unlike traditional methods that learn a stochastic policy producing a Gaussian or categorical distribution, DPG focuses on learning a deterministic policy. To achieve this, the authors first derived a deterministic analog of the policy gradient theorem called the determinstic policy gradient theorem. <br></p>
 <p>Let <span class="math notranslate nohighlight">\(\mu:\mathcal{S}\rightarrow\mathcal{A}\)</span> be a mapping from states to actions. The deterministic policy gradient theorem shows that the gradient of the expected reward <span class="math notranslate nohighlight">\(J(\theta)\)</span> can be expressed as</p>
 <div class="math notranslate nohighlight">
@@ -435,10 +438,10 @@ document.write(`
 \[\nabla_{\theta} J(\theta) = \mathbb{E}_{\tau\sim p(\tau)}\bigg[\nabla_\theta\mu_\theta(s)\nabla_\theta Q(s, a)\bigg|_{a=\mu_\theta(s)}\bigg]\]</div>
 <p>Which can be evaluated using Monte-Carlo methods. This gives us a way to update the policy function. However, we still need a way to estimate the action state value.</p>
 <section id="deep-deterministic-policy-gradient">
-<h2><span class="section-number">12.1. </span>Deep deterministic policy gradient<a class="headerlink" href="#deep-deterministic-policy-gradient" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.1. </span>Deep deterministic policy gradient<a class="headerlink" href="#deep-deterministic-policy-gradient" title="Link to this heading">#</a></h2>
 <p>In a subsequent paper, Continuous Control with Deep Reinforcement Learning, Lillicrap et al. applied the Deterministic Policy Gradient (DPG) method to deep neural network estimators. The resulting algorithm is known as the deep determinstic policy gradient (DDPG) method. The DDPG algorithm uses a Q-learning-like method to learn the action value function <span class="math notranslate nohighlight">\(Q\)</span>. The psuedocode for DDPG is presented below</p>
 <div class="proof algorithm admonition" id="my-algorithm">
-<p class="admonition-title"><span class="caption-number">Algorithm 12.1 </span> (Deep deterministic policy gradient)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 15.1 </span> (Deep deterministic policy gradient)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Inputs</strong> Differentiable policy <span class="math notranslate nohighlight">\(\pi_{\theta}\)</span>, action value function <span class="math notranslate nohighlight">\(Q_{\phi}\)</span>, learning rate <span class="math notranslate nohighlight">\(\alpha\)</span>, number of episodes <span class="math notranslate nohighlight">\(N\)</span>, batch size <span class="math notranslate nohighlight">\(K\)</span></p>
 <ol class="arabic">
@@ -482,11 +485,11 @@ document.write(`
 </ol>
 </section>
 </div><section id="action-value-function-update">
-<h3><span class="section-number">12.1.1. </span>Action value function update<a class="headerlink" href="#action-value-function-update" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.1.1. </span>Action value function update<a class="headerlink" href="#action-value-function-update" title="Link to this heading">#</a></h3>
 <p>In the paper, the authors use a Q-learning style method to estimate the action value function <span class="math notranslate nohighlight">\(Q\)</span>. To improve performance, they introduce a replay buffer and use two <span class="math notranslate nohighlight">\(Q\)</span> functions for updates. However, only one of the <span class="math notranslate nohighlight">\(Q\)</span> functions is directly trained, while the other is updated by taking the exponential moving average of the trained <span class="math notranslate nohighlight">\(Q\)</span> function. This approach helps enhance the stability of the training process. The weight <span class="math notranslate nohighlight">\(\tau\)</span> for the exponential moving average is set to a value around <span class="math notranslate nohighlight">\(0.005\)</span>.</p>
 </section>
 <section id="exploration">
-<h3><span class="section-number">12.1.2. </span>Exploration<a class="headerlink" href="#exploration" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.1.2. </span>Exploration<a class="headerlink" href="#exploration" title="Link to this heading">#</a></h3>
 <p>One problem with deterministic policies during training is that the policy is likely to avoid exploring unvisited states. To address this issue, the authors proposed adding noise to the actions output by the policy:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{a}_t = \mu_{\theta}(\mathbf{s}_t)+\mathcal{N}\]</div>
@@ -496,7 +499,7 @@ document.write(`
 </section>
 </section>
 <section id="ddpg-implementation">
-<h2><span class="section-number">12.2. </span>DDPG Implementation<a class="headerlink" href="#ddpg-implementation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.2. </span>DDPG Implementation<a class="headerlink" href="#ddpg-implementation" title="Link to this heading">#</a></h2>
 <p>We implement the DDPG algorithm and test its performance on the inverse pendulum task. For both the policy and the action value function, we used a one layer neural network with hidden units of <span class="math notranslate nohighlight">\(128\)</span>. For the noise process, we followed the same choice of Ornstein-Uhlenbeck process with <span class="math notranslate nohighlight">\(\theta=0.5\)</span> and <span class="math notranslate nohighlight">\(\sigma=0.2\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -722,7 +725,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Proximal policy gradient</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Proximal policy gradient</p>
       </div>
     </a>
     <a class="right-next"
@@ -730,7 +733,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Soft actor critic</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Soft actor critic</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -750,12 +753,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-deterministic-policy-gradient">12.1. Deep deterministic policy gradient</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-value-function-update">12.1.1. Action value function update</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration">12.1.2. Exploration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-deterministic-policy-gradient">15.1. Deep deterministic policy gradient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-value-function-update">15.1.1. Action value function update</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration">15.1.2. Exploration</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ddpg-implementation">12.2. DDPG Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ddpg-implementation">15.2. DDPG Implementation</a></li>
 </ul>
   </nav></div>
 
